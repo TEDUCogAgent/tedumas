@@ -11,6 +11,8 @@ import eis.iilang.Percept;
 import massim.eismassim.EnvironmentInterface;
 import massim.javaagents.agents.Agent;
 import massim.javaagents.agents.BasicAgent;
+import org.apache.logging.log4j.LogManager;
+import org.apache.logging.log4j.core.Logger;
 import org.json.JSONObject;
 
 import java.io.IOException;
@@ -25,7 +27,7 @@ import java.util.*;
  * (Also, queued and notifications should be disabled)
  */
 public class Scheduler implements AgentListener, EnvironmentListener{
-
+    private static Logger logger = (Logger) LogManager.getLogger("Scheduler");
     /**
      * Holds configured agent data.
      */
@@ -135,10 +137,12 @@ public class Scheduler implements AgentListener, EnvironmentListener{
             try {
                 var addList = new ArrayList<Percept>();
                 var delList = new ArrayList<Percept>();
+
                 eis.getPercepts(ag.getName()).values().forEach(pUpdate -> {
                     addList.addAll(pUpdate.getAddList());
                     delList.addAll(pUpdate.getDeleteList());
                 });
+                logger.info(addList.toString());
                 if (!addList.isEmpty() || !delList.isEmpty()) newPerceptAgents.add(ag);
                 ag.setPercepts(addList, delList);
             } catch (PerceiveException ignored) { }
@@ -147,8 +151,9 @@ public class Scheduler implements AgentListener, EnvironmentListener{
         // step all agents which have new percepts
         newPerceptAgents.forEach(agent -> {
             eis.iilang.Action action = agent.step();
-            if (action != null) {
+            if (action != null && !agent.getName().equals("B1")) {
                 try {
+                    System.out.println(agent.getName());
                     eis.performAction(agent.getName(), action);
                 } catch (ActException e) {
                     System.out.println("Could not perform action " + action.getName() + " for " + agent.getName());
