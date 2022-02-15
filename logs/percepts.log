@@ -1,0 +1,34 @@
+{connectionA1=PerceptUpdate [add=
+[
+role(worker,5,[rotate,request,disconnect,move,submit,adopt,clear,detach,skip,attach,connect],[2,1,1,0],0.3,1), 
+role(default,5,[rotate,move,adopt,clear,detach,skip],[1],0.3,1), 
+role(explorer,7,[rotate,move,adopt,clear,detach,survey,skip,attach],[3,0],0.3,1), 
+role(digger,5,[rotate,move,adopt,clear,detach,skip],[1,0],1.0,5), s
+imStart, name(agentA1), team(A), steps(750), 
+role(constructor,5,[rotate,request,disconnect,move,submit,adopt,clear,detach,skip,attach,connect],[1],0.3,1), 
+teamSize(1), 
+thing(0,5,obstacle,), 
+thing(-2,2,obstacle,), 
+thing(0,3,obstacle,), 
+thing(-4,1,obstacle,), deactivated(false), 
+thing(0,1,obstacle,), 
+timestamp(1644916058898), 
+thing(-2,0,obstacle,), 
+thing(2,0,obstacle,), 
+thing(2,-2,obstacle,), 
+thing(4,-1,obstacle,), 
+thing(4,1,obstacle,), 
+task(task0,137,10,[req(0,1,b2)]), step(0), lastActionParams([]), lastActionResult(), requestAction, 
+thing(-3,1,obstacle,), 
+thing(-1,4,obstacle,), 
+thing(-1,2,obstacle,), 
+thing(-5,0,obstacle,), thing(-1,0,obstacle,), thing(1,3,obstacle,), thing(1,1,obstacle,), thing(3,-2,obstacle,), thing(3,0,obstacle,), 
+task(task1,119,40,[req(0,1,b1),req(69,1,b1)]), 
+thing(-4,0,obstacle,), thing(-2,1,obstacle,), thing(-2,3,obstacle,), thing(0,4,obstacle,), thing(0,2,obstacle,), thing(2,1,obstacle,), thing(2,-1,obstacle,), thing(2,-3,obstacle,), thing(4,0,obstacle,), thing(0,0,entity,B), thing(0,0,entity,A), thing(-3,0,obstacle,), 
+role(default), 
+thing(-1,3,obstacle,), thing(1,4,obstacle,), thing(-3,2,obstacle,), thing(-1,1,obstacle,), thing(1,2,obstacle,), 
+norm(n1,10,198,[requirement(role,digger,1,)],14), score(0), deadline(1644916062900), 
+thing(1,0,obstacle,), thing(5,0,obstacle,), thing(3,-1,obstacle,), thing(3,1,obstacle,), 
+energy(100), lastAction(), actionID(0)], del=[]]}
+
+{connectionA1=PerceptUpdate [add=[step(1), lastActionResult(success), deadline(1644916066950), timestamp(1644916062949), lastAction(no_action), actionID(1)], del=[timestamp(1644916058898), step(0), lastActionResult(), deadline(1644916062900), lastAction(), actionID(0)]]}

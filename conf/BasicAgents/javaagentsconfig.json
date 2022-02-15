@@ -7,14 +7,6 @@
       "entity-prefix":  "connectionA",
       "team":  "A",
       "class": "BasicAgent"
-    },
-    {
-      "count":  1,
-      "start-index":  1,
-      "agent-prefix":  "B",
-      "entity-prefix":  "connectionB",
-      "team":  "B",
-      "class": "BasicAgent"
     }
   ]
 }
