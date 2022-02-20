@@ -16,6 +16,7 @@ import org.apache.logging.log4j.LogManager;
 
 import org.apache.logging.log4j.Logger;
 import org.json.JSONObject;
+import org.kie.api.runtime.KieSession;
 
 import java.io.IOException;
 import java.nio.file.Files;
@@ -50,8 +51,8 @@ public class Scheduler implements AgentListener, EnvironmentListener {
     }
 
     private EnvironmentInterface eis;
-    private List<AgentConf> agentConfigurations = new Vector<>();
-    private Map<String, Agent> agents = new HashMap<>();
+    private final List<AgentConf> agentConfigurations = new Vector<>();
+    private final Map<String, Agent> agents = new HashMap<>();
 
     /**
      * Create a new scheduler based on the given configuration file
@@ -137,14 +138,11 @@ public class Scheduler implements AgentListener, EnvironmentListener {
     /**
      * Steps all agents and relevant infrastructure.
      */
-    void step() {
+    void step(KieSession ksession) {
         // retrieve percepts for all agents
         List<Agent> newPerceptAgents = new ArrayList<>();
-        try {
-            logger.info(eis.getPercepts("A1"));
-        } catch (PerceiveException ignored) {
-        }
-        /*gents.values().forEach(ag -> {
+
+        agents.values().forEach(ag -> {
             try {
                 var addList = new ArrayList<Percept>();
                 var delList = new ArrayList<Percept>();
@@ -153,28 +151,18 @@ public class Scheduler implements AgentListener, EnvironmentListener {
                     addList.addAll(pUpdate.getAddList());
                     delList.addAll(pUpdate.getDeleteList());
                 });
-
-                if (!addList.isEmpty()) {
-                    logger.info("AddList");
-                    logger.info(addList.toString());
-                }
-                if (!delList.isEmpty()) {
-                    logger.info("DeleteList");
-                    logger.info(delList.toString());
-                }
                 if (!addList.isEmpty() || !delList.isEmpty()) {
                     newPerceptAgents.add(ag);
                 }
                 ag.setPercepts(addList, delList);
             } catch (PerceiveException ignored) { }
-        });*/
+        });
 
         // step all agents which have new percepts
         newPerceptAgents.forEach(agent -> {
-            eis.iilang.Action action = agent.step();
+            eis.iilang.Action action = agent.step(ksession);
             if (action != null && !agent.getName().equals("B1")) {
                 try {
-                    System.out.println(agent.getName());
                     eis.performAction(agent.getName(), action);
                 } catch (ActException e) {
                     System.out.println("Could not perform action " + action.getName() + " for " + agent.getName());

@@ -2,6 +2,11 @@ package massim.javaagents.agents;
 
 import eis.iilang.*;
 import massim.javaagents.MailService;
+import massim.javaagents.RuleEngine;
+import massim.javaagents.Scheduler;
+import org.apache.logging.log4j.LogManager;
+import org.apache.logging.log4j.Logger;
+import org.kie.api.runtime.KieSession;
 
 import java.util.List;
 
@@ -9,7 +14,8 @@ import java.util.List;
  * A very basic agent.
  */
 public class BasicAgent extends Agent {
-
+    private static final Logger
+            logger = LogManager.getLogger(BasicAgent.class);
     private int lastID = -1;
 
     /**
@@ -28,11 +34,16 @@ public class BasicAgent extends Agent {
     public void handleMessage(Percept message, String sender) {}
 
     @Override
-    public Action step() {
+    public Action step(KieSession ksession) {
         List<Percept> percepts = getPercepts();
+        logger.info("******************************");
         for (Percept percept : percepts) {
+            logger.info("percept: " + percept);
+            ksession.insert(percept);
+            ksession.fireAllRules();
             if (percept.getName().equals("actionID")) {
                 Parameter param = percept.getParameters().get(0);
+                //logger.info("param: " + param);
                 if (param instanceof Numeral) {
                     int id = ((Numeral) param).getValue().intValue();
                     if (id > lastID) {

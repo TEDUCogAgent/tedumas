@@ -2,6 +2,7 @@ package massim.javaagents.agents;
 
 import eis.iilang.Percept;
 import massim.javaagents.MailService;
+import org.kie.api.runtime.KieSession;
 
 import java.util.*;
 
@@ -34,7 +35,7 @@ public abstract class Agent {
     /**
      * Called for each step.
      */
-    public abstract eis.iilang.Action step();
+    public abstract eis.iilang.Action step(KieSession ksession);
 
     /**
      * @return the name of the agent

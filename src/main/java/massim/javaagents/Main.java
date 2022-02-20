@@ -3,6 +3,9 @@ package massim.javaagents;
 import eis.exceptions.ManagementException;
 import eis.iilang.EnvironmentState;
 import massim.eismassim.EnvironmentInterface;
+import org.kie.api.KieServices;
+import org.kie.api.runtime.KieContainer;
+import org.kie.api.runtime.KieSession;
 
 import java.io.File;
 import java.util.Scanner;
@@ -13,6 +16,10 @@ import java.util.Scanner;
 public class Main {
 
     public static void main( String[] args ) {
+
+        KieServices kieServices = KieServices.Factory.get();
+        KieContainer kContainer = kieServices.getKieClasspathContainer();
+        KieSession ksession = kContainer.newKieSession();
 
         String configDir = "";
 
@@ -28,15 +35,17 @@ public class Main {
                 System.exit(0);
             }
             else {
+                /*
                 System.out.println("Choose a number:");
                 for (int i = 0; i < confFiles.length; i++) {
                     System.out.println(i + " " + confFiles[i]);
                 }
                 Scanner in = new Scanner(System.in);
+                */
                 Integer confNum = null;
                 while (confNum == null) {
                     try {
-                        confNum = Integer.parseInt(in.next());
+                        confNum = Integer.parseInt("0"/*in.next()*/);
                         if (confNum < 0 || confNum > confFiles.length - 1){
                             System.out.println("No config for that number, try again:");
                             confNum = null;
@@ -66,7 +75,7 @@ public class Main {
         int step = 0;
         while ((ei.getState() == EnvironmentState.RUNNING)) {
             System.out.println("SCHEDULER STEP " + step);
-            scheduler.step();
+            scheduler.step(ksession);
             step++;
         }
     }

@@ -14,10 +14,10 @@ import java.util.logging.Logger;
  */
 public class MailService {
 
-    private Map<String, Agent> register = new HashMap<>();
-    private Map<String, List<Agent>> agentsByTeam = new HashMap<>();
-    private Map<String, String> teamForAgent = new HashMap<>();
-    private Logger logger = Logger.getLogger("agents");
+    private final Map<String, Agent> register = new HashMap<>();
+    private final Map<String, List<Agent>> agentsByTeam = new HashMap<>();
+    private final Map<String, String> teamForAgent = new HashMap<>();
+    private final Logger logger = Logger.getLogger("agents");
 
     /**
      * Registers an agent with this mail service. The agent will now receive messages.

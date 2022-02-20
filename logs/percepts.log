@@ -1,34 +1,1511 @@
-{connectionA1=PerceptUpdate [add=
-[
-role(worker,5,[rotate,request,disconnect,move,submit,adopt,clear,detach,skip,attach,connect],[2,1,1,0],0.3,1), 
-role(default,5,[rotate,move,adopt,clear,detach,skip],[1],0.3,1), 
-role(explorer,7,[rotate,move,adopt,clear,detach,survey,skip,attach],[3,0],0.3,1), 
-role(digger,5,[rotate,move,adopt,clear,detach,skip],[1,0],1.0,5), s
-imStart, name(agentA1), team(A), steps(750), 
-role(constructor,5,[rotate,request,disconnect,move,submit,adopt,clear,detach,skip,attach,connect],[1],0.3,1), 
-teamSize(1), 
-thing(0,5,obstacle,), 
-thing(-2,2,obstacle,), 
-thing(0,3,obstacle,), 
-thing(-4,1,obstacle,), deactivated(false), 
-thing(0,1,obstacle,), 
-timestamp(1644916058898), 
-thing(-2,0,obstacle,), 
-thing(2,0,obstacle,), 
-thing(2,-2,obstacle,), 
-thing(4,-1,obstacle,), 
-thing(4,1,obstacle,), 
-task(task0,137,10,[req(0,1,b2)]), step(0), lastActionParams([]), lastActionResult(), requestAction, 
-thing(-3,1,obstacle,), 
-thing(-1,4,obstacle,), 
-thing(-1,2,obstacle,), 
-thing(-5,0,obstacle,), thing(-1,0,obstacle,), thing(1,3,obstacle,), thing(1,1,obstacle,), thing(3,-2,obstacle,), thing(3,0,obstacle,), 
-task(task1,119,40,[req(0,1,b1),req(69,1,b1)]), 
-thing(-4,0,obstacle,), thing(-2,1,obstacle,), thing(-2,3,obstacle,), thing(0,4,obstacle,), thing(0,2,obstacle,), thing(2,1,obstacle,), thing(2,-1,obstacle,), thing(2,-3,obstacle,), thing(4,0,obstacle,), thing(0,0,entity,B), thing(0,0,entity,A), thing(-3,0,obstacle,), 
-role(default), 
-thing(-1,3,obstacle,), thing(1,4,obstacle,), thing(-3,2,obstacle,), thing(-1,1,obstacle,), thing(1,2,obstacle,), 
-norm(n1,10,198,[requirement(role,digger,1,)],14), score(0), deadline(1644916062900), 
-thing(1,0,obstacle,), thing(5,0,obstacle,), thing(3,-1,obstacle,), thing(3,1,obstacle,), 
-energy(100), lastAction(), actionID(0)], del=[]]}
-
-{connectionA1=PerceptUpdate [add=[step(1), lastActionResult(success), deadline(1644916066950), timestamp(1644916062949), lastAction(no_action), actionID(1)], del=[timestamp(1644916058898), step(0), lastActionResult(), deadline(1644916062900), lastAction(), actionID(0)]]}
+******************************
+percept: role(worker,5,[rotate,request,disconnect,move,submit,adopt,clear,detach,skip,attach,connect],[2,1,1,0],0.3,1)
+wwwwwrole
+qqqqq[worker, 5, [rotate,request,disconnect,move,submit,adopt,clear,detach,skip,attach,connect], [2,1,1,0], 0.3, 1]
+percept: role(default,5,[rotate,move,adopt,clear,detach,skip],[1],0.3,1)
+wwwwwrole
+qqqqq[default, 5, [rotate,move,adopt,clear,detach,skip], [1], 0.3, 1]
+percept: role(explorer,7,[rotate,move,adopt,clear,detach,survey,skip,attach],[3,0],0.3,1)
+wwwwwrole
+qqqqq[explorer, 7, [rotate,move,adopt,clear,detach,survey,skip,attach], [3,0], 0.3, 1]
+percept: role(digger,5,[rotate,move,adopt,clear,detach,skip],[1,0],1.0,5)
+wwwwwrole
+qqqqq[digger, 5, [rotate,move,adopt,clear,detach,skip], [1,0], 1.0, 5]
+percept: simStart
+wwwwwsimStart
+qqqqq[]
+percept: name(agentA1)
+wwwwwname
+qqqqq[agentA1]
+percept: team(A)
+wwwwwteam
+qqqqq[A]
+percept: steps(750)
+wwwwwsteps
+qqqqq[750]
+percept: role(constructor,5,[rotate,request,disconnect,move,submit,adopt,clear,detach,skip,attach,connect],[1],0.3,1)
+wwwwwrole
+qqqqq[constructor, 5, [rotate,request,disconnect,move,submit,adopt,clear,detach,skip,attach,connect], [1], 0.3, 1]
+percept: teamSize(1)
+wwwwwteamSize
+qqqqq[1]
+******************************
+percept: simStart
+wwwwwsimStart
+qqqqq[]
+percept: thing(0,5,obstacle,)
+wwwwwthing
+qqqqq[0, 5, obstacle, ]
+percept: thing(-2,2,obstacle,)
+wwwwwthing
+qqqqq[-2, 2, obstacle, ]
+percept: deadline(1645222620558)
+wwwwwdeadline
+qqqqq[1645222620558]
+percept: thing(0,3,obstacle,)
+wwwwwthing
+qqqqq[0, 3, obstacle, ]
+percept: thing(-4,1,obstacle,)
+wwwwwthing
+qqqqq[-4, 1, obstacle, ]
+percept: deactivated(false)
+wwwwwdeactivated
+qqqqq[false]
+percept: thing(0,1,obstacle,)
+wwwwwthing
+qqqqq[0, 1, obstacle, ]
+percept: thing(-2,0,obstacle,)
+wwwwwthing
+qqqqq[-2, 0, obstacle, ]
+percept: thing(2,0,obstacle,)
+wwwwwthing
+qqqqq[2, 0, obstacle, ]
+percept: thing(2,-2,obstacle,)
+wwwwwthing
+qqqqq[2, -2, obstacle, ]
+percept: role(worker,5,[rotate,request,disconnect,move,submit,adopt,clear,detach,skip,attach,connect],[2,1,1,0],0.3,1)
+wwwwwrole
+qqqqq[worker, 5, [rotate,request,disconnect,move,submit,adopt,clear,detach,skip,attach,connect], [2,1,1,0], 0.3, 1]
+percept: thing(4,-1,obstacle,)
+wwwwwthing
+qqqqq[4, -1, obstacle, ]
+percept: thing(4,1,obstacle,)
+wwwwwthing
+qqqqq[4, 1, obstacle, ]
+percept: task(task0,137,10,[req(0,1,b2)])
+wwwwwtask
+qqqqq[task0, 137, 10, [req(0,1,b2)]]
+percept: step(0)
+wwwwwstep
+qqqqq[0]
+percept: lastActionParams([])
+wwwwwlastActionParams
+qqqqq[[]]
+percept: lastActionResult()
+wwwwwlastActionResult
+qqqqq[]
+percept: requestAction
+wwwwwrequestAction
+qqqqq[]
+percept: role(explorer,7,[rotate,move,adopt,clear,detach,survey,skip,attach],[3,0],0.3,1)
+wwwwwrole
+qqqqq[explorer, 7, [rotate,move,adopt,clear,detach,survey,skip,attach], [3,0], 0.3, 1]
+percept: thing(-3,1,obstacle,)
+wwwwwthing
+qqqqq[-3, 1, obstacle, ]
+percept: thing(-1,4,obstacle,)
+wwwwwthing
+qqqqq[-1, 4, obstacle, ]
+percept: thing(-1,2,obstacle,)
+wwwwwthing
+qqqqq[-1, 2, obstacle, ]
+percept: thing(-5,0,obstacle,)
+wwwwwthing
+qqqqq[-5, 0, obstacle, ]
+percept: thing(-1,0,obstacle,)
+wwwwwthing
+qqqqq[-1, 0, obstacle, ]
+percept: thing(1,3,obstacle,)
+wwwwwthing
+qqqqq[1, 3, obstacle, ]
+percept: thing(1,1,obstacle,)
+wwwwwthing
+qqqqq[1, 1, obstacle, ]
+percept: thing(3,-2,obstacle,)
+wwwwwthing
+qqqqq[3, -2, obstacle, ]
+percept: thing(3,0,obstacle,)
+wwwwwthing
+qqqqq[3, 0, obstacle, ]
+percept: task(task1,119,40,[req(0,1,b1),req(69,1,b1)])
+wwwwwtask
+qqqqq[task1, 119, 40, [req(0,1,b1),req(69,1,b1)]]
+percept: role(default,5,[rotate,move,adopt,clear,detach,skip],[1],0.3,1)
+wwwwwrole
+qqqqq[default, 5, [rotate,move,adopt,clear,detach,skip], [1], 0.3, 1]
+percept: thing(-4,0,obstacle,)
+wwwwwthing
+qqqqq[-4, 0, obstacle, ]
+percept: thing(-2,1,obstacle,)
+wwwwwthing
+qqqqq[-2, 1, obstacle, ]
+percept: thing(0,4,obstacle,)
+wwwwwthing
+qqqqq[0, 4, obstacle, ]
+percept: thing(-2,3,obstacle,)
+wwwwwthing
+qqqqq[-2, 3, obstacle, ]
+percept: steps(750)
+wwwwwsteps
+qqqqq[750]
+percept: thing(0,2,obstacle,)
+wwwwwthing
+qqqqq[0, 2, obstacle, ]
+percept: thing(2,1,obstacle,)
+wwwwwthing
+qqqqq[2, 1, obstacle, ]
+percept: thing(2,-1,obstacle,)
+wwwwwthing
+qqqqq[2, -1, obstacle, ]
+percept: thing(2,-3,obstacle,)
+wwwwwthing
+qqqqq[2, -3, obstacle, ]
+percept: thing(4,0,obstacle,)
+wwwwwthing
+qqqqq[4, 0, obstacle, ]
+percept: role(digger,5,[rotate,move,adopt,clear,detach,skip],[1,0],1.0,5)
+wwwwwrole
+qqqqq[digger, 5, [rotate,move,adopt,clear,detach,skip], [1,0], 1.0, 5]
+percept: role(constructor,5,[rotate,request,disconnect,move,submit,adopt,clear,detach,skip,attach,connect],[1],0.3,1)
+wwwwwrole
+qqqqq[constructor, 5, [rotate,request,disconnect,move,submit,adopt,clear,detach,skip,attach,connect], [1], 0.3, 1]
+percept: thing(0,0,entity,B)
+wwwwwthing
+qqqqq[0, 0, entity, B]
+percept: timestamp(1645222616554)
+wwwwwtimestamp
+qqqqq[1645222616554]
+percept: thing(0,0,entity,A)
+wwwwwthing
+qqqqq[0, 0, entity, A]
+percept: thing(-3,0,obstacle,)
+wwwwwthing
+qqqqq[-3, 0, obstacle, ]
+percept: role(default)
+wwwwwrole
+qqqqq[default]
+percept: thing(-3,2,obstacle,)
+wwwwwthing
+qqqqq[-3, 2, obstacle, ]
+percept: thing(-1,3,obstacle,)
+wwwwwthing
+qqqqq[-1, 3, obstacle, ]
+percept: thing(1,4,obstacle,)
+wwwwwthing
+qqqqq[1, 4, obstacle, ]
+percept: thing(1,2,obstacle,)
+wwwwwthing
+qqqqq[1, 2, obstacle, ]
+percept: thing(-1,1,obstacle,)
+wwwwwthing
+qqqqq[-1, 1, obstacle, ]
+percept: norm(n1,10,198,[requirement(role,digger,1,)],14)
+wwwwwnorm
+qqqqq[n1, 10, 198, [requirement(role,digger,1,)], 14]
+percept: score(0)
+wwwwwscore
+qqqqq[0]
+percept: thing(1,0,obstacle,)
+wwwwwthing
+qqqqq[1, 0, obstacle, ]
+percept: thing(3,-1,obstacle,)
+wwwwwthing
+qqqqq[3, -1, obstacle, ]
+percept: thing(5,0,obstacle,)
+wwwwwthing
+qqqqq[5, 0, obstacle, ]
+percept: thing(3,1,obstacle,)
+wwwwwthing
+qqqqq[3, 1, obstacle, ]
+percept: energy(100)
+wwwwwenergy
+qqqqq[100]
+percept: name(agentA1)
+wwwwwname
+qqqqq[agentA1]
+percept: team(A)
+wwwwwteam
+qqqqq[A]
+percept: lastAction()
+wwwwwlastAction
+qqqqq[]
+percept: teamSize(1)
+wwwwwteamSize
+qqqqq[1]
+percept: actionID(0)
+wwwwwactionID
+qqqqq[0]
+******************************
+percept: simStart
+wwwwwsimStart
+qqqqq[]
+percept: thing(0,5,obstacle,)
+wwwwwthing
+qqqqq[0, 5, obstacle, ]
+percept: thing(-2,2,obstacle,)
+wwwwwthing
+qqqqq[-2, 2, obstacle, ]
+percept: lastAction(move)
+wwwwwlastAction
+qqqqq[move]
+percept: thing(0,3,obstacle,)
+wwwwwthing
+qqqqq[0, 3, obstacle, ]
+percept: thing(-4,1,obstacle,)
+wwwwwthing
+qqqqq[-4, 1, obstacle, ]
+percept: deactivated(false)
+wwwwwdeactivated
+qqqqq[false]
+percept: timestamp(1645222620614)
+wwwwwtimestamp
+qqqqq[1645222620614]
+percept: lastActionParams([n])
+wwwwwlastActionParams
+qqqqq[[n]]
+percept: thing(2,2,obstacle,)
+wwwwwthing
+qqqqq[2, 2, obstacle, ]
+percept: thing(2,0,obstacle,)
+wwwwwthing
+qqqqq[2, 0, obstacle, ]
+percept: thing(2,-2,obstacle,)
+wwwwwthing
+qqqqq[2, -2, obstacle, ]
+percept: role(worker,5,[rotate,request,disconnect,move,submit,adopt,clear,detach,skip,attach,connect],[2,1,1,0],0.3,1)
+wwwwwrole
+qqqqq[worker, 5, [rotate,request,disconnect,move,submit,adopt,clear,detach,skip,attach,connect], [2,1,1,0], 0.3, 1]
+percept: thing(4,-1,obstacle,)
+wwwwwthing
+qqqqq[4, -1, obstacle, ]
+percept: thing(4,1,obstacle,)
+wwwwwthing
+qqqqq[4, 1, obstacle, ]
+percept: task(task0,137,10,[req(0,1,b2)])
+wwwwwtask
+qqqqq[task0, 137, 10, [req(0,1,b2)]]
+percept: thing(0,1,entity,B)
+wwwwwthing
+qqqqq[0, 1, entity, B]
+percept: step(1)
+wwwwwstep
+qqqqq[1]
+percept: requestAction
+wwwwwrequestAction
+qqqqq[]
+percept: role(explorer,7,[rotate,move,adopt,clear,detach,survey,skip,attach],[3,0],0.3,1)
+wwwwwrole
+qqqqq[explorer, 7, [rotate,move,adopt,clear,detach,survey,skip,attach], [3,0], 0.3, 1]
+percept: thing(-3,1,obstacle,)
+wwwwwthing
+qqqqq[-3, 1, obstacle, ]
+percept: thing(-1,4,obstacle,)
+wwwwwthing
+qqqqq[-1, 4, obstacle, ]
+percept: thing(-1,2,obstacle,)
+wwwwwthing
+qqqqq[-1, 2, obstacle, ]
+percept: thing(-5,0,obstacle,)
+wwwwwthing
+qqqqq[-5, 0, obstacle, ]
+percept: lastActionResult(success)
+wwwwwlastActionResult
+qqqqq[success]
+percept: thing(1,3,obstacle,)
+wwwwwthing
+qqqqq[1, 3, obstacle, ]
+percept: thing(1,1,obstacle,)
+wwwwwthing
+qqqqq[1, 1, obstacle, ]
+percept: thing(3,-2,obstacle,)
+wwwwwthing
+qqqqq[3, -2, obstacle, ]
+percept: thing(3,0,obstacle,)
+wwwwwthing
+qqqqq[3, 0, obstacle, ]
+percept: thing(3,2,obstacle,)
+wwwwwthing
+qqqqq[3, 2, obstacle, ]
+percept: task(task1,119,40,[req(0,1,b1),req(69,1,b1)])
+wwwwwtask
+qqqqq[task1, 119, 40, [req(0,1,b1),req(69,1,b1)]]
+percept: role(default,5,[rotate,move,adopt,clear,detach,skip],[1],0.3,1)
+wwwwwrole
+qqqqq[default, 5, [rotate,move,adopt,clear,detach,skip], [1], 0.3, 1]
+percept: thing(-2,1,obstacle,)
+wwwwwthing
+qqqqq[-2, 1, obstacle, ]
+percept: thing(0,4,obstacle,)
+wwwwwthing
+qqqqq[0, 4, obstacle, ]
+percept: thing(-2,3,obstacle,)
+wwwwwthing
+qqqqq[-2, 3, obstacle, ]
+percept: steps(750)
+wwwwwsteps
+qqqqq[750]
+percept: thing(0,2,obstacle,)
+wwwwwthing
+qqqqq[0, 2, obstacle, ]
+percept: thing(-2,-3,obstacle,)
+wwwwwthing
+qqqqq[-2, -3, obstacle, ]
+percept: thing(2,1,obstacle,)
+wwwwwthing
+qqqqq[2, 1, obstacle, ]
+percept: thing(2,-1,obstacle,)
+wwwwwthing
+qqqqq[2, -1, obstacle, ]
+percept: thing(2,-3,obstacle,)
+wwwwwthing
+qqqqq[2, -3, obstacle, ]
+percept: thing(4,0,obstacle,)
+wwwwwthing
+qqqqq[4, 0, obstacle, ]
+percept: role(digger,5,[rotate,move,adopt,clear,detach,skip],[1,0],1.0,5)
+wwwwwrole
+qqqqq[digger, 5, [rotate,move,adopt,clear,detach,skip], [1,0], 1.0, 5]
+percept: role(constructor,5,[rotate,request,disconnect,move,submit,adopt,clear,detach,skip,attach,connect],[1],0.3,1)
+wwwwwrole
+qqqqq[constructor, 5, [rotate,request,disconnect,move,submit,adopt,clear,detach,skip,attach,connect], [1], 0.3, 1]
+percept: thing(0,0,entity,A)
+wwwwwthing
+qqqqq[0, 0, entity, A]
+percept: deadline(1645222624616)
+wwwwwdeadline
+qqqqq[1645222624616]
+percept: actionID(1)
+wwwwwactionID
+qqqqq[1]
+******************************
+percept: simStart
+wwwwwsimStart
+qqqqq[]
+percept: thing(0,5,obstacle,)
+wwwwwthing
+qqqqq[0, 5, obstacle, ]
+percept: thing(-2,2,obstacle,)
+wwwwwthing
+qqqqq[-2, 2, obstacle, ]
+percept: lastAction(move)
+wwwwwlastAction
+qqqqq[move]
+percept: thing(-4,-1,obstacle,)
+wwwwwthing
+qqqqq[-4, -1, obstacle, ]
+percept: thing(0,3,obstacle,)
+wwwwwthing
+qqqqq[0, 3, obstacle, ]
+percept: deactivated(false)
+wwwwwdeactivated
+qqqqq[false]
+percept: thing(-2,-2,obstacle,)
+wwwwwthing
+qqqqq[-2, -2, obstacle, ]
+percept: lastActionParams([n])
+wwwwwlastActionParams
+qqqqq[[n]]
+percept: thing(2,2,obstacle,)
+wwwwwthing
+qqqqq[2, 2, obstacle, ]
+percept: thing(2,0,obstacle,)
+wwwwwthing
+qqqqq[2, 0, obstacle, ]
+percept: thing(2,-2,obstacle,)
+wwwwwthing
+qqqqq[2, -2, obstacle, ]
+percept: role(worker,5,[rotate,request,disconnect,move,submit,adopt,clear,detach,skip,attach,connect],[2,1,1,0],0.3,1)
+wwwwwrole
+qqqqq[worker, 5, [rotate,request,disconnect,move,submit,adopt,clear,detach,skip,attach,connect], [2,1,1,0], 0.3, 1]
+percept: thing(4,-1,obstacle,)
+wwwwwthing
+qqqqq[4, -1, obstacle, ]
+percept: thing(4,1,obstacle,)
+wwwwwthing
+qqqqq[4, 1, obstacle, ]
+percept: task(task0,137,10,[req(0,1,b2)])
+wwwwwtask
+qqqqq[task0, 137, 10, [req(0,1,b2)]]
+percept: timestamp(1645222624694)
+wwwwwtimestamp
+qqqqq[1645222624694]
+percept: step(2)
+wwwwwstep
+qqqqq[2]
+percept: requestAction
+wwwwwrequestAction
+qqqqq[]
+percept: role(explorer,7,[rotate,move,adopt,clear,detach,survey,skip,attach],[3,0],0.3,1)
+wwwwwrole
+qqqqq[explorer, 7, [rotate,move,adopt,clear,detach,survey,skip,attach], [3,0], 0.3, 1]
+percept: thing(-1,4,obstacle,)
+wwwwwthing
+qqqqq[-1, 4, obstacle, ]
+percept: thing(-1,2,obstacle,)
+wwwwwthing
+qqqqq[-1, 2, obstacle, ]
+percept: thing(-5,0,obstacle,)
+wwwwwthing
+qqqqq[-5, 0, obstacle, ]
+percept: lastActionResult(success)
+wwwwwlastActionResult
+qqqqq[success]
+percept: thing(1,3,obstacle,)
+wwwwwthing
+qqqqq[1, 3, obstacle, ]
+percept: thing(-3,-1,obstacle,)
+wwwwwthing
+qqqqq[-3, -1, obstacle, ]
+percept: thing(3,-2,obstacle,)
+wwwwwthing
+qqqqq[3, -2, obstacle, ]
+percept: thing(3,0,obstacle,)
+wwwwwthing
+qqqqq[3, 0, obstacle, ]
+percept: thing(3,2,obstacle,)
+wwwwwthing
+qqqqq[3, 2, obstacle, ]
+percept: task(task1,119,40,[req(0,1,b1),req(69,1,b1)])
+wwwwwtask
+qqqqq[task1, 119, 40, [req(0,1,b1),req(69,1,b1)]]
+percept: role(default,5,[rotate,move,adopt,clear,detach,skip],[1],0.3,1)
+wwwwwrole
+qqqqq[default, 5, [rotate,move,adopt,clear,detach,skip], [1], 0.3, 1]
+percept: thing(0,4,obstacle,)
+wwwwwthing
+qqqqq[0, 4, obstacle, ]
+percept: thing(-2,3,obstacle,)
+wwwwwthing
+qqqqq[-2, 3, obstacle, ]
+percept: steps(750)
+wwwwwsteps
+qqqqq[750]
+percept: thing(-2,-3,obstacle,)
+wwwwwthing
+qqqqq[-2, -3, obstacle, ]
+percept: thing(2,3,obstacle,)
+wwwwwthing
+qqqqq[2, 3, obstacle, ]
+percept: thing(2,1,obstacle,)
+wwwwwthing
+qqqqq[2, 1, obstacle, ]
+percept: thing(2,-1,obstacle,)
+wwwwwthing
+qqqqq[2, -1, obstacle, ]
+percept: thing(2,-3,obstacle,)
+wwwwwthing
+qqqqq[2, -3, obstacle, ]
+percept: deadline(1645222628695)
+wwwwwdeadline
+qqqqq[1645222628695]
+percept: thing(4,0,obstacle,)
+wwwwwthing
+qqqqq[4, 0, obstacle, ]
+percept: role(digger,5,[rotate,move,adopt,clear,detach,skip],[1,0],1.0,5)
+wwwwwrole
+qqqqq[digger, 5, [rotate,move,adopt,clear,detach,skip], [1,0], 1.0, 5]
+percept: role(constructor,5,[rotate,request,disconnect,move,submit,adopt,clear,detach,skip,attach,connect],[1],0.3,1)
+wwwwwrole
+qqqqq[constructor, 5, [rotate,request,disconnect,move,submit,adopt,clear,detach,skip,attach,connect], [1], 0.3, 1]
+percept: thing(0,0,entity,A)
+wwwwwthing
+qqqqq[0, 0, entity, A]
+percept: thing(0,2,entity,B)
+wwwwwthing
+qqqqq[0, 2, entity, B]
+percept: actionID(2)
+wwwwwactionID
+qqqqq[2]
+******************************
+percept: simStart
+wwwwwsimStart
+qqqqq[]
+percept: thing(0,5,obstacle,)
+wwwwwthing
+qqqqq[0, 5, obstacle, ]
+percept: lastAction(move)
+wwwwwlastAction
+qqqqq[move]
+percept: thing(-4,-1,obstacle,)
+wwwwwthing
+qqqqq[-4, -1, obstacle, ]
+percept: deactivated(false)
+wwwwwdeactivated
+qqqqq[false]
+percept: thing(-2,-2,obstacle,)
+wwwwwthing
+qqqqq[-2, -2, obstacle, ]
+percept: lastActionParams([n])
+wwwwwlastActionParams
+qqqqq[[n]]
+percept: thing(2,2,obstacle,)
+wwwwwthing
+qqqqq[2, 2, obstacle, ]
+percept: thing(2,0,obstacle,)
+wwwwwthing
+qqqqq[2, 0, obstacle, ]
+percept: thing(2,-2,obstacle,)
+wwwwwthing
+qqqqq[2, -2, obstacle, ]
+percept: thing(0,-5,obstacle,)
+wwwwwthing
+qqqqq[0, -5, obstacle, ]
+percept: role(worker,5,[rotate,request,disconnect,move,submit,adopt,clear,detach,skip,attach,connect],[2,1,1,0],0.3,1)
+wwwwwrole
+qqqqq[worker, 5, [rotate,request,disconnect,move,submit,adopt,clear,detach,skip,attach,connect], [2,1,1,0], 0.3, 1]
+percept: thing(4,-1,obstacle,)
+wwwwwthing
+qqqqq[4, -1, obstacle, ]
+percept: thing(4,1,obstacle,)
+wwwwwthing
+qqqqq[4, 1, obstacle, ]
+percept: task(task0,137,10,[req(0,1,b2)])
+wwwwwtask
+qqqqq[task0, 137, 10, [req(0,1,b2)]]
+percept: step(3)
+wwwwwstep
+qqqqq[3]
+percept: thing(0,3,entity,B)
+wwwwwthing
+qqqqq[0, 3, entity, B]
+percept: requestAction
+wwwwwrequestAction
+qqqqq[]
+percept: role(explorer,7,[rotate,move,adopt,clear,detach,survey,skip,attach],[3,0],0.3,1)
+wwwwwrole
+qqqqq[explorer, 7, [rotate,move,adopt,clear,detach,survey,skip,attach], [3,0], 0.3, 1]
+percept: thing(-1,4,obstacle,)
+wwwwwthing
+qqqqq[-1, 4, obstacle, ]
+percept: deadline(1645222632749)
+wwwwwdeadline
+qqqqq[1645222632749]
+percept: thing(-5,0,obstacle,)
+wwwwwthing
+qqqqq[-5, 0, obstacle, ]
+percept: lastActionResult(success)
+wwwwwlastActionResult
+qqqqq[success]
+percept: thing(1,3,obstacle,)
+wwwwwthing
+qqqqq[1, 3, obstacle, ]
+percept: thing(-3,-1,obstacle,)
+wwwwwthing
+qqqqq[-3, -1, obstacle, ]
+percept: thing(3,-2,obstacle,)
+wwwwwthing
+qqqqq[3, -2, obstacle, ]
+percept: thing(3,0,obstacle,)
+wwwwwthing
+qqqqq[3, 0, obstacle, ]
+percept: thing(3,2,obstacle,)
+wwwwwthing
+qqqqq[3, 2, obstacle, ]
+percept: timestamp(1645222628748)
+wwwwwtimestamp
+qqqqq[1645222628748]
+percept: task(task1,119,40,[req(0,1,b1),req(69,1,b1)])
+wwwwwtask
+qqqqq[task1, 119, 40, [req(0,1,b1),req(69,1,b1)]]
+percept: role(default,5,[rotate,move,adopt,clear,detach,skip],[1],0.3,1)
+wwwwwrole
+qqqqq[default, 5, [rotate,move,adopt,clear,detach,skip], [1], 0.3, 1]
+percept: thing(-4,0,obstacle,)
+wwwwwthing
+qqqqq[-4, 0, obstacle, ]
+percept: thing(0,4,obstacle,)
+wwwwwthing
+qqqqq[0, 4, obstacle, ]
+percept: thing(-2,3,obstacle,)
+wwwwwthing
+qqqqq[-2, 3, obstacle, ]
+percept: steps(750)
+wwwwwsteps
+qqqqq[750]
+percept: thing(2,3,obstacle,)
+wwwwwthing
+qqqqq[2, 3, obstacle, ]
+percept: thing(2,1,obstacle,)
+wwwwwthing
+qqqqq[2, 1, obstacle, ]
+percept: thing(-2,-1,obstacle,)
+wwwwwthing
+qqqqq[-2, -1, obstacle, ]
+percept: thing(2,-1,obstacle,)
+wwwwwthing
+qqqqq[2, -1, obstacle, ]
+percept: thing(4,0,obstacle,)
+wwwwwthing
+qqqqq[4, 0, obstacle, ]
+percept: role(digger,5,[rotate,move,adopt,clear,detach,skip],[1,0],1.0,5)
+wwwwwrole
+qqqqq[digger, 5, [rotate,move,adopt,clear,detach,skip], [1,0], 1.0, 5]
+percept: role(constructor,5,[rotate,request,disconnect,move,submit,adopt,clear,detach,skip,attach,connect],[1],0.3,1)
+wwwwwrole
+qqqqq[constructor, 5, [rotate,request,disconnect,move,submit,adopt,clear,detach,skip,attach,connect], [1], 0.3, 1]
+percept: thing(0,0,entity,A)
+wwwwwthing
+qqqqq[0, 0, entity, A]
+percept: actionID(3)
+wwwwwactionID
+qqqqq[3]
+******************************
+percept: simStart
+wwwwwsimStart
+qqqqq[]
+percept: thing(0,5,obstacle,)
+wwwwwthing
+qqqqq[0, 5, obstacle, ]
+percept: lastAction(move)
+wwwwwlastAction
+qqqqq[move]
+percept: thing(-4,-1,obstacle,)
+wwwwwthing
+qqqqq[-4, -1, obstacle, ]
+percept: deactivated(false)
+wwwwwdeactivated
+qqqqq[false]
+percept: thing(-4,1,obstacle,)
+wwwwwthing
+qqqqq[-4, 1, obstacle, ]
+percept: lastActionParams([n])
+wwwwwlastActionParams
+qqqqq[[n]]
+percept: thing(2,2,obstacle,)
+wwwwwthing
+qqqqq[2, 2, obstacle, ]
+percept: thing(-2,0,obstacle,)
+wwwwwthing
+qqqqq[-2, 0, obstacle, ]
+percept: thing(2,0,obstacle,)
+wwwwwthing
+qqqqq[2, 0, obstacle, ]
+percept: thing(0,-5,obstacle,)
+wwwwwthing
+qqqqq[0, -5, obstacle, ]
+percept: role(worker,5,[rotate,request,disconnect,move,submit,adopt,clear,detach,skip,attach,connect],[2,1,1,0],0.3,1)
+wwwwwrole
+qqqqq[worker, 5, [rotate,request,disconnect,move,submit,adopt,clear,detach,skip,attach,connect], [2,1,1,0], 0.3, 1]
+percept: thing(4,-1,obstacle,)
+wwwwwthing
+qqqqq[4, -1, obstacle, ]
+percept: deadline(1645222636824)
+wwwwwdeadline
+qqqqq[1645222636824]
+percept: thing(4,1,obstacle,)
+wwwwwthing
+qqqqq[4, 1, obstacle, ]
+percept: step(4)
+wwwwwstep
+qqqqq[4]
+percept: task(task0,137,10,[req(0,1,b2)])
+wwwwwtask
+qqqqq[task0, 137, 10, [req(0,1,b2)]]
+percept: requestAction
+wwwwwrequestAction
+qqqqq[]
+percept: role(explorer,7,[rotate,move,adopt,clear,detach,survey,skip,attach],[3,0],0.3,1)
+wwwwwrole
+qqqqq[explorer, 7, [rotate,move,adopt,clear,detach,survey,skip,attach], [3,0], 0.3, 1]
+percept: thing(-1,4,obstacle,)
+wwwwwthing
+qqqqq[-1, 4, obstacle, ]
+percept: thing(-3,1,obstacle,)
+wwwwwthing
+qqqqq[-3, 1, obstacle, ]
+percept: thing(-5,0,obstacle,)
+wwwwwthing
+qqqqq[-5, 0, obstacle, ]
+percept: lastActionResult(success)
+wwwwwlastActionResult
+qqqqq[success]
+percept: thing(-3,-1,obstacle,)
+wwwwwthing
+qqqqq[-3, -1, obstacle, ]
+percept: thing(3,-2,obstacle,)
+wwwwwthing
+qqqqq[3, -2, obstacle, ]
+percept: thing(3,0,obstacle,)
+wwwwwthing
+qqqqq[3, 0, obstacle, ]
+percept: thing(3,2,obstacle,)
+wwwwwthing
+qqqqq[3, 2, obstacle, ]
+percept: task(task1,119,40,[req(0,1,b1),req(69,1,b1)])
+wwwwwtask
+qqqqq[task1, 119, 40, [req(0,1,b1),req(69,1,b1)]]
+percept: role(default,5,[rotate,move,adopt,clear,detach,skip],[1],0.3,1)
+wwwwwrole
+qqqqq[default, 5, [rotate,move,adopt,clear,detach,skip], [1], 0.3, 1]
+percept: thing(-4,0,obstacle,)
+wwwwwthing
+qqqqq[-4, 0, obstacle, ]
+percept: steps(750)
+wwwwwsteps
+qqqqq[750]
+percept: thing(2,3,obstacle,)
+wwwwwthing
+qqqqq[2, 3, obstacle, ]
+percept: thing(2,1,obstacle,)
+wwwwwthing
+qqqqq[2, 1, obstacle, ]
+percept: thing(-2,-1,obstacle,)
+wwwwwthing
+qqqqq[-2, -1, obstacle, ]
+percept: thing(2,-1,obstacle,)
+wwwwwthing
+qqqqq[2, -1, obstacle, ]
+percept: thing(0,-4,obstacle,)
+wwwwwthing
+qqqqq[0, -4, obstacle, ]
+percept: thing(4,0,obstacle,)
+wwwwwthing
+qqqqq[4, 0, obstacle, ]
+percept: role(digger,5,[rotate,move,adopt,clear,detach,skip],[1,0],1.0,5)
+wwwwwrole
+qqqqq[digger, 5, [rotate,move,adopt,clear,detach,skip], [1,0], 1.0, 5]
+percept: timestamp(1645222632824)
+wwwwwtimestamp
+qqqqq[1645222632824]
+percept: role(constructor,5,[rotate,request,disconnect,move,submit,adopt,clear,detach,skip,attach,connect],[1],0.3,1)
+wwwwwrole
+qqqqq[constructor, 5, [rotate,request,disconnect,move,submit,adopt,clear,detach,skip,attach,connect], [1], 0.3, 1]
+percept: thing(0,0,entity,A)
+wwwwwthing
+qqqqq[0, 0, entity, A]
+percept: thing(0,4,entity,B)
+wwwwwthing
+qqqqq[0, 4, entity, B]
+percept: actionID(4)
+wwwwwactionID
+qqqqq[4]
+******************************
+percept: simStart
+wwwwwsimStart
+qqqqq[]
+percept: lastAction(move)
+wwwwwlastAction
+qqqqq[move]
+percept: thing(-4,-1,obstacle,)
+wwwwwthing
+qqqqq[-4, -1, obstacle, ]
+percept: deactivated(false)
+wwwwwdeactivated
+qqqqq[false]
+percept: thing(-4,1,obstacle,)
+wwwwwthing
+qqqqq[-4, 1, obstacle, ]
+percept: lastActionParams([n])
+wwwwwlastActionParams
+qqqqq[[n]]
+percept: thing(2,2,obstacle,)
+wwwwwthing
+qqqqq[2, 2, obstacle, ]
+percept: thing(-2,0,obstacle,)
+wwwwwthing
+qqqqq[-2, 0, obstacle, ]
+percept: thing(2,0,obstacle,)
+wwwwwthing
+qqqqq[2, 0, obstacle, ]
+percept: thing(0,-3,obstacle,)
+wwwwwthing
+qqqqq[0, -3, obstacle, ]
+percept: thing(0,-5,obstacle,)
+wwwwwthing
+qqqqq[0, -5, obstacle, ]
+percept: role(worker,5,[rotate,request,disconnect,move,submit,adopt,clear,detach,skip,attach,connect],[2,1,1,0],0.3,1)
+wwwwwrole
+qqqqq[worker, 5, [rotate,request,disconnect,move,submit,adopt,clear,detach,skip,attach,connect], [2,1,1,0], 0.3, 1]
+percept: thing(4,-1,obstacle,)
+wwwwwthing
+qqqqq[4, -1, obstacle, ]
+percept: thing(0,5,entity,B)
+wwwwwthing
+qqqqq[0, 5, entity, B]
+percept: thing(4,1,obstacle,)
+wwwwwthing
+qqqqq[4, 1, obstacle, ]
+percept: task(task0,137,10,[req(0,1,b2)])
+wwwwwtask
+qqqqq[task0, 137, 10, [req(0,1,b2)]]
+percept: step(5)
+wwwwwstep
+qqqqq[5]
+percept: requestAction
+wwwwwrequestAction
+qqqqq[]
+percept: role(explorer,7,[rotate,move,adopt,clear,detach,survey,skip,attach],[3,0],0.3,1)
+wwwwwrole
+qqqqq[explorer, 7, [rotate,move,adopt,clear,detach,survey,skip,attach], [3,0], 0.3, 1]
+percept: thing(-3,1,obstacle,)
+wwwwwthing
+qqqqq[-3, 1, obstacle, ]
+percept: thing(-5,0,obstacle,)
+wwwwwthing
+qqqqq[-5, 0, obstacle, ]
+percept: lastActionResult(success)
+wwwwwlastActionResult
+qqqqq[success]
+percept: thing(-3,-1,obstacle,)
+wwwwwthing
+qqqqq[-3, -1, obstacle, ]
+percept: thing(-1,-4,obstacle,)
+wwwwwthing
+qqqqq[-1, -4, obstacle, ]
+percept: thing(1,-3,obstacle,)
+wwwwwthing
+qqqqq[1, -3, obstacle, ]
+percept: thing(3,-2,obstacle,)
+wwwwwthing
+qqqqq[3, -2, obstacle, ]
+percept: thing(3,0,obstacle,)
+wwwwwthing
+qqqqq[3, 0, obstacle, ]
+percept: thing(3,2,obstacle,)
+wwwwwthing
+qqqqq[3, 2, obstacle, ]
+percept: task(task1,119,40,[req(0,1,b1),req(69,1,b1)])
+wwwwwtask
+qqqqq[task1, 119, 40, [req(0,1,b1),req(69,1,b1)]]
+percept: role(default,5,[rotate,move,adopt,clear,detach,skip],[1],0.3,1)
+wwwwwrole
+qqqqq[default, 5, [rotate,move,adopt,clear,detach,skip], [1], 0.3, 1]
+percept: thing(-4,0,obstacle,)
+wwwwwthing
+qqqqq[-4, 0, obstacle, ]
+percept: thing(-2,1,obstacle,)
+wwwwwthing
+qqqqq[-2, 1, obstacle, ]
+percept: steps(750)
+wwwwwsteps
+qqqqq[750]
+percept: thing(2,3,obstacle,)
+wwwwwthing
+qqqqq[2, 3, obstacle, ]
+percept: thing(2,1,obstacle,)
+wwwwwthing
+qqqqq[2, 1, obstacle, ]
+percept: thing(0,-4,obstacle,)
+wwwwwthing
+qqqqq[0, -4, obstacle, ]
+percept: thing(2,-3,obstacle,)
+wwwwwthing
+qqqqq[2, -3, obstacle, ]
+percept: thing(4,0,obstacle,)
+wwwwwthing
+qqqqq[4, 0, obstacle, ]
+percept: role(digger,5,[rotate,move,adopt,clear,detach,skip],[1,0],1.0,5)
+wwwwwrole
+qqqqq[digger, 5, [rotate,move,adopt,clear,detach,skip], [1,0], 1.0, 5]
+percept: role(constructor,5,[rotate,request,disconnect,move,submit,adopt,clear,detach,skip,attach,connect],[1],0.3,1)
+wwwwwrole
+qqqqq[constructor, 5, [rotate,request,disconnect,move,submit,adopt,clear,detach,skip,attach,connect], [1], 0.3, 1]
+percept: thing(0,0,entity,A)
+wwwwwthing
+qqqqq[0, 0, entity, A]
+percept: role(default)
+wwwwwrole
+qqqqq[default]
+percept: thing(-3,0,obstacle,)
+wwwwwthing
+qqqqq[-3, 0, obstacle, ]
+percept: actionID(5)
+wwwwwactionID
+qqqqq[5]
+******************************
+percept: simStart
+wwwwwsimStart
+qqqqq[]
+percept: lastAction(move)
+wwwwwlastAction
+qqqqq[move]
+percept: thing(-4,-1,obstacle,)
+wwwwwthing
+qqqqq[-4, -1, obstacle, ]
+percept: thing(-2,2,obstacle,)
+wwwwwthing
+qqqqq[-2, 2, obstacle, ]
+percept: deactivated(false)
+wwwwwdeactivated
+qqqqq[false]
+percept: thing(-4,1,obstacle,)
+wwwwwthing
+qqqqq[-4, 1, obstacle, ]
+percept: lastActionParams([n])
+wwwwwlastActionParams
+qqqqq[[n]]
+percept: thing(2,2,obstacle,)
+wwwwwthing
+qqqqq[2, 2, obstacle, ]
+percept: thing(0,-3,obstacle,)
+wwwwwthing
+qqqqq[0, -3, obstacle, ]
+percept: thing(0,-5,obstacle,)
+wwwwwthing
+qqqqq[0, -5, obstacle, ]
+percept: thing(2,-2,obstacle,)
+wwwwwthing
+qqqqq[2, -2, obstacle, ]
+percept: role(worker,5,[rotate,request,disconnect,move,submit,adopt,clear,detach,skip,attach,connect],[2,1,1,0],0.3,1)
+wwwwwrole
+qqqqq[worker, 5, [rotate,request,disconnect,move,submit,adopt,clear,detach,skip,attach,connect], [2,1,1,0], 0.3, 1]
+percept: thing(4,-1,obstacle,)
+wwwwwthing
+qqqqq[4, -1, obstacle, ]
+percept: step(6)
+wwwwwstep
+qqqqq[6]
+percept: thing(4,1,obstacle,)
+wwwwwthing
+qqqqq[4, 1, obstacle, ]
+percept: task(task0,137,10,[req(0,1,b2)])
+wwwwwtask
+qqqqq[task0, 137, 10, [req(0,1,b2)]]
+percept: deadline(1645222644900)
+wwwwwdeadline
+qqqqq[1645222644900]
+percept: requestAction
+wwwwwrequestAction
+qqqqq[]
+percept: role(explorer,7,[rotate,move,adopt,clear,detach,survey,skip,attach],[3,0],0.3,1)
+wwwwwrole
+qqqqq[explorer, 7, [rotate,move,adopt,clear,detach,survey,skip,attach], [3,0], 0.3, 1]
+percept: thing(-3,1,obstacle,)
+wwwwwthing
+qqqqq[-3, 1, obstacle, ]
+percept: thing(-5,0,obstacle,)
+wwwwwthing
+qqqqq[-5, 0, obstacle, ]
+percept: lastActionResult(success)
+wwwwwlastActionResult
+qqqqq[success]
+percept: thing(-3,-1,obstacle,)
+wwwwwthing
+qqqqq[-3, -1, obstacle, ]
+percept: thing(-1,-4,obstacle,)
+wwwwwthing
+qqqqq[-1, -4, obstacle, ]
+percept: thing(1,-3,obstacle,)
+wwwwwthing
+qqqqq[1, -3, obstacle, ]
+percept: thing(3,-2,obstacle,)
+wwwwwthing
+qqqqq[3, -2, obstacle, ]
+percept: thing(3,0,obstacle,)
+wwwwwthing
+qqqqq[3, 0, obstacle, ]
+percept: thing(3,2,obstacle,)
+wwwwwthing
+qqqqq[3, 2, obstacle, ]
+percept: task(task1,119,40,[req(0,1,b1),req(69,1,b1)])
+wwwwwtask
+qqqqq[task1, 119, 40, [req(0,1,b1),req(69,1,b1)]]
+percept: timestamp(1645222640900)
+wwwwwtimestamp
+qqqqq[1645222640900]
+percept: role(default,5,[rotate,move,adopt,clear,detach,skip],[1],0.3,1)
+wwwwwrole
+qqqqq[default, 5, [rotate,move,adopt,clear,detach,skip], [1], 0.3, 1]
+percept: thing(-4,0,obstacle,)
+wwwwwthing
+qqqqq[-4, 0, obstacle, ]
+percept: thing(-2,1,obstacle,)
+wwwwwthing
+qqqqq[-2, 1, obstacle, ]
+percept: steps(750)
+wwwwwsteps
+qqqqq[750]
+percept: thing(2,3,obstacle,)
+wwwwwthing
+qqqqq[2, 3, obstacle, ]
+percept: thing(-2,-3,obstacle,)
+wwwwwthing
+qqqqq[-2, -3, obstacle, ]
+percept: thing(2,1,obstacle,)
+wwwwwthing
+qqqqq[2, 1, obstacle, ]
+percept: thing(0,-2,obstacle,)
+wwwwwthing
+qqqqq[0, -2, obstacle, ]
+percept: thing(0,-4,obstacle,)
+wwwwwthing
+qqqqq[0, -4, obstacle, ]
+percept: thing(2,-3,obstacle,)
+wwwwwthing
+qqqqq[2, -3, obstacle, ]
+percept: thing(4,0,obstacle,)
+wwwwwthing
+qqqqq[4, 0, obstacle, ]
+percept: role(digger,5,[rotate,move,adopt,clear,detach,skip],[1,0],1.0,5)
+wwwwwrole
+qqqqq[digger, 5, [rotate,move,adopt,clear,detach,skip], [1,0], 1.0, 5]
+percept: role(constructor,5,[rotate,request,disconnect,move,submit,adopt,clear,detach,skip,attach,connect],[1],0.3,1)
+wwwwwrole
+qqqqq[constructor, 5, [rotate,request,disconnect,move,submit,adopt,clear,detach,skip,attach,connect], [1], 0.3, 1]
+percept: thing(0,0,entity,A)
+wwwwwthing
+qqqqq[0, 0, entity, A]
+percept: actionID(6)
+wwwwwactionID
+qqqqq[6]
+******************************
+percept: timestamp(1645222644933)
+wwwwwtimestamp
+qqqqq[1645222644933]
+percept: simStart
+wwwwwsimStart
+qqqqq[]
+percept: lastAction(move)
+wwwwwlastAction
+qqqqq[move]
+percept: thing(-4,-1,obstacle,)
+wwwwwthing
+qqqqq[-4, -1, obstacle, ]
+percept: thing(-2,2,obstacle,)
+wwwwwthing
+qqqqq[-2, 2, obstacle, ]
+percept: deactivated(false)
+wwwwwdeactivated
+qqqqq[false]
+percept: thing(-4,1,obstacle,)
+wwwwwthing
+qqqqq[-4, 1, obstacle, ]
+percept: thing(-2,-2,obstacle,)
+wwwwwthing
+qqqqq[-2, -2, obstacle, ]
+percept: lastActionParams([n])
+wwwwwlastActionParams
+qqqqq[[n]]
+percept: thing(2,2,obstacle,)
+wwwwwthing
+qqqqq[2, 2, obstacle, ]
+percept: thing(0,-1,obstacle,)
+wwwwwthing
+qqqqq[0, -1, obstacle, ]
+percept: thing(0,-3,obstacle,)
+wwwwwthing
+qqqqq[0, -3, obstacle, ]
+percept: thing(0,-5,obstacle,)
+wwwwwthing
+qqqqq[0, -5, obstacle, ]
+percept: thing(2,-2,obstacle,)
+wwwwwthing
+qqqqq[2, -2, obstacle, ]
+percept: role(worker,5,[rotate,request,disconnect,move,submit,adopt,clear,detach,skip,attach,connect],[2,1,1,0],0.3,1)
+wwwwwrole
+qqqqq[worker, 5, [rotate,request,disconnect,move,submit,adopt,clear,detach,skip,attach,connect], [2,1,1,0], 0.3, 1]
+percept: thing(4,-1,obstacle,)
+wwwwwthing
+qqqqq[4, -1, obstacle, ]
+percept: step(7)
+wwwwwstep
+qqqqq[7]
+percept: thing(4,1,obstacle,)
+wwwwwthing
+qqqqq[4, 1, obstacle, ]
+percept: task(task0,137,10,[req(0,1,b2)])
+wwwwwtask
+qqqqq[task0, 137, 10, [req(0,1,b2)]]
+percept: requestAction
+wwwwwrequestAction
+qqqqq[]
+percept: role(explorer,7,[rotate,move,adopt,clear,detach,survey,skip,attach],[3,0],0.3,1)
+wwwwwrole
+qqqqq[explorer, 7, [rotate,move,adopt,clear,detach,survey,skip,attach], [3,0], 0.3, 1]
+percept: thing(-3,1,obstacle,)
+wwwwwthing
+qqqqq[-3, 1, obstacle, ]
+percept: thing(-5,0,obstacle,)
+wwwwwthing
+qqqqq[-5, 0, obstacle, ]
+percept: lastActionResult(success)
+wwwwwlastActionResult
+qqqqq[success]
+percept: thing(-3,-1,obstacle,)
+wwwwwthing
+qqqqq[-3, -1, obstacle, ]
+percept: thing(-1,-2,obstacle,)
+wwwwwthing
+qqqqq[-1, -2, obstacle, ]
+percept: thing(-1,-4,obstacle,)
+wwwwwthing
+qqqqq[-1, -4, obstacle, ]
+percept: thing(1,-1,obstacle,)
+wwwwwthing
+qqqqq[1, -1, obstacle, ]
+percept: thing(1,-3,obstacle,)
+wwwwwthing
+qqqqq[1, -3, obstacle, ]
+percept: thing(3,-2,obstacle,)
+wwwwwthing
+qqqqq[3, -2, obstacle, ]
+percept: thing(3,0,obstacle,)
+wwwwwthing
+qqqqq[3, 0, obstacle, ]
+percept: thing(3,2,obstacle,)
+wwwwwthing
+qqqqq[3, 2, obstacle, ]
+percept: task(task1,119,40,[req(0,1,b1),req(69,1,b1)])
+wwwwwtask
+qqqqq[task1, 119, 40, [req(0,1,b1),req(69,1,b1)]]
+percept: role(default,5,[rotate,move,adopt,clear,detach,skip],[1],0.3,1)
+wwwwwrole
+qqqqq[default, 5, [rotate,move,adopt,clear,detach,skip], [1], 0.3, 1]
+percept: thing(-4,0,obstacle,)
+wwwwwthing
+qqqqq[-4, 0, obstacle, ]
+percept: thing(-2,3,obstacle,)
+wwwwwthing
+qqqqq[-2, 3, obstacle, ]
+percept: steps(750)
+wwwwwsteps
+qqqqq[750]
+percept: thing(2,3,obstacle,)
+wwwwwthing
+qqqqq[2, 3, obstacle, ]
+percept: thing(-2,-3,obstacle,)
+wwwwwthing
+qqqqq[-2, -3, obstacle, ]
+percept: thing(0,-2,obstacle,)
+wwwwwthing
+qqqqq[0, -2, obstacle, ]
+percept: thing(2,-1,obstacle,)
+wwwwwthing
+qqqqq[2, -1, obstacle, ]
+percept: thing(0,-4,obstacle,)
+wwwwwthing
+qqqqq[0, -4, obstacle, ]
+percept: thing(2,-3,obstacle,)
+wwwwwthing
+qqqqq[2, -3, obstacle, ]
+percept: thing(4,0,obstacle,)
+wwwwwthing
+qqqqq[4, 0, obstacle, ]
+percept: role(digger,5,[rotate,move,adopt,clear,detach,skip],[1,0],1.0,5)
+wwwwwrole
+qqqqq[digger, 5, [rotate,move,adopt,clear,detach,skip], [1,0], 1.0, 5]
+percept: role(constructor,5,[rotate,request,disconnect,move,submit,adopt,clear,detach,skip,attach,connect],[1],0.3,1)
+wwwwwrole
+qqqqq[constructor, 5, [rotate,request,disconnect,move,submit,adopt,clear,detach,skip,attach,connect], [1], 0.3, 1]
+percept: thing(0,0,entity,A)
+wwwwwthing
+qqqqq[0, 0, entity, A]
+percept: deadline(1645222648934)
+wwwwwdeadline
+qqqqq[1645222648934]
+percept: role(default)
+wwwwwrole
+qqqqq[default]
+percept: thing(-3,0,obstacle,)
+wwwwwthing
+qqqqq[-3, 0, obstacle, ]
+percept: thing(-3,2,obstacle,)
+wwwwwthing
+qqqqq[-3, 2, obstacle, ]
+percept: actionID(7)
+wwwwwactionID
+qqqqq[7]
+******************************
+percept: simStart
+wwwwwsimStart
+qqqqq[]
+percept: lastAction(move)
+wwwwwlastAction
+qqqqq[move]
+percept: thing(-4,-1,obstacle,)
+wwwwwthing
+qqqqq[-4, -1, obstacle, ]
+percept: thing(-2,2,obstacle,)
+wwwwwthing
+qqqqq[-2, 2, obstacle, ]
+percept: deactivated(false)
+wwwwwdeactivated
+qqqqq[false]
+percept: thing(-4,1,obstacle,)
+wwwwwthing
+qqqqq[-4, 1, obstacle, ]
+percept: thing(-2,-2,obstacle,)
+wwwwwthing
+qqqqq[-2, -2, obstacle, ]
+percept: lastActionParams([n])
+wwwwwlastActionParams
+qqqqq[[n]]
+percept: thing(2,2,obstacle,)
+wwwwwthing
+qqqqq[2, 2, obstacle, ]
+percept: thing(0,-1,obstacle,)
+wwwwwthing
+qqqqq[0, -1, obstacle, ]
+percept: lastActionResult(failed_path)
+wwwwwlastActionResult
+qqqqq[failed_path]
+percept: thing(0,-3,obstacle,)
+wwwwwthing
+qqqqq[0, -3, obstacle, ]
+percept: thing(0,-5,obstacle,)
+wwwwwthing
+qqqqq[0, -5, obstacle, ]
+percept: thing(2,-2,obstacle,)
+wwwwwthing
+qqqqq[2, -2, obstacle, ]
+percept: role(worker,5,[rotate,request,disconnect,move,submit,adopt,clear,detach,skip,attach,connect],[2,1,1,0],0.3,1)
+wwwwwrole
+qqqqq[worker, 5, [rotate,request,disconnect,move,submit,adopt,clear,detach,skip,attach,connect], [2,1,1,0], 0.3, 1]
+percept: thing(4,-1,obstacle,)
+wwwwwthing
+qqqqq[4, -1, obstacle, ]
+percept: thing(4,1,obstacle,)
+wwwwwthing
+qqqqq[4, 1, obstacle, ]
+percept: task(task0,137,10,[req(0,1,b2)])
+wwwwwtask
+qqqqq[task0, 137, 10, [req(0,1,b2)]]
+percept: step(8)
+wwwwwstep
+qqqqq[8]
+percept: requestAction
+wwwwwrequestAction
+qqqqq[]
+percept: role(explorer,7,[rotate,move,adopt,clear,detach,survey,skip,attach],[3,0],0.3,1)
+wwwwwrole
+qqqqq[explorer, 7, [rotate,move,adopt,clear,detach,survey,skip,attach], [3,0], 0.3, 1]
+percept: thing(-3,1,obstacle,)
+wwwwwthing
+qqqqq[-3, 1, obstacle, ]
+percept: thing(-5,0,obstacle,)
+wwwwwthing
+qqqqq[-5, 0, obstacle, ]
+percept: thing(-3,-1,obstacle,)
+wwwwwthing
+qqqqq[-3, -1, obstacle, ]
+percept: thing(-1,-2,obstacle,)
+wwwwwthing
+qqqqq[-1, -2, obstacle, ]
+percept: thing(-1,-4,obstacle,)
+wwwwwthing
+qqqqq[-1, -4, obstacle, ]
+percept: thing(1,-1,obstacle,)
+wwwwwthing
+qqqqq[1, -1, obstacle, ]
+percept: thing(1,-3,obstacle,)
+wwwwwthing
+qqqqq[1, -3, obstacle, ]
+percept: deadline(1645222652983)
+wwwwwdeadline
+qqqqq[1645222652983]
+percept: thing(3,-2,obstacle,)
+wwwwwthing
+qqqqq[3, -2, obstacle, ]
+percept: thing(3,0,obstacle,)
+wwwwwthing
+qqqqq[3, 0, obstacle, ]
+percept: thing(3,2,obstacle,)
+wwwwwthing
+qqqqq[3, 2, obstacle, ]
+percept: timestamp(1645222648982)
+wwwwwtimestamp
+qqqqq[1645222648982]
+percept: task(task1,119,40,[req(0,1,b1),req(69,1,b1)])
+wwwwwtask
+qqqqq[task1, 119, 40, [req(0,1,b1),req(69,1,b1)]]
+percept: role(default,5,[rotate,move,adopt,clear,detach,skip],[1],0.3,1)
+wwwwwrole
+qqqqq[default, 5, [rotate,move,adopt,clear,detach,skip], [1], 0.3, 1]
+percept: thing(-4,0,obstacle,)
+wwwwwthing
+qqqqq[-4, 0, obstacle, ]
+percept: thing(-2,3,obstacle,)
+wwwwwthing
+qqqqq[-2, 3, obstacle, ]
+percept: steps(750)
+wwwwwsteps
+qqqqq[750]
+percept: thing(2,3,obstacle,)
+wwwwwthing
+qqqqq[2, 3, obstacle, ]
+percept: thing(-2,-3,obstacle,)
+wwwwwthing
+qqqqq[-2, -3, obstacle, ]
+percept: thing(0,-2,obstacle,)
+wwwwwthing
+qqqqq[0, -2, obstacle, ]
+percept: thing(2,-1,obstacle,)
+wwwwwthing
+qqqqq[2, -1, obstacle, ]
+percept: thing(0,-4,obstacle,)
+wwwwwthing
+qqqqq[0, -4, obstacle, ]
+percept: thing(2,-3,obstacle,)
+wwwwwthing
+qqqqq[2, -3, obstacle, ]
+percept: thing(4,0,obstacle,)
+wwwwwthing
+qqqqq[4, 0, obstacle, ]
+percept: role(digger,5,[rotate,move,adopt,clear,detach,skip],[1,0],1.0,5)
+wwwwwrole
+qqqqq[digger, 5, [rotate,move,adopt,clear,detach,skip], [1,0], 1.0, 5]
+percept: role(constructor,5,[rotate,request,disconnect,move,submit,adopt,clear,detach,skip,attach,connect],[1],0.3,1)
+wwwwwrole
+qqqqq[constructor, 5, [rotate,request,disconnect,move,submit,adopt,clear,detach,skip,attach,connect], [1], 0.3, 1]
+percept: thing(0,0,entity,A)
+wwwwwthing
+qqqqq[0, 0, entity, A]
+percept: role(default)
+wwwwwrole
+qqqqq[default]
+percept: thing(-3,0,obstacle,)
+wwwwwthing
+qqqqq[-3, 0, obstacle, ]
+percept: actionID(8)
+wwwwwactionID
+qqqqq[8]
+******************************
+percept: simStart
+wwwwwsimStart
+qqqqq[]
+percept: lastAction(move)
+wwwwwlastAction
+qqqqq[move]
+percept: thing(-4,-1,obstacle,)
+wwwwwthing
+qqqqq[-4, -1, obstacle, ]
+percept: thing(-2,2,obstacle,)
+wwwwwthing
+qqqqq[-2, 2, obstacle, ]
+percept: deactivated(false)
+wwwwwdeactivated
+qqqqq[false]
+percept: thing(-4,1,obstacle,)
+wwwwwthing
+qqqqq[-4, 1, obstacle, ]
+percept: thing(-2,-2,obstacle,)
+wwwwwthing
+qqqqq[-2, -2, obstacle, ]
+percept: deadline(1645222657040)
+wwwwwdeadline
+qqqqq[1645222657040]
+percept: lastActionParams([n])
+wwwwwlastActionParams
+qqqqq[[n]]
+percept: thing(2,2,obstacle,)
+wwwwwthing
+qqqqq[2, 2, obstacle, ]
+percept: thing(0,-1,obstacle,)
+wwwwwthing
+qqqqq[0, -1, obstacle, ]
+percept: lastActionResult(failed_path)
+wwwwwlastActionResult
+qqqqq[failed_path]
+percept: thing(0,-3,obstacle,)
+wwwwwthing
+qqqqq[0, -3, obstacle, ]
+percept: thing(0,-5,obstacle,)
+wwwwwthing
+qqqqq[0, -5, obstacle, ]
+percept: thing(2,-2,obstacle,)
+wwwwwthing
+qqqqq[2, -2, obstacle, ]
+percept: role(worker,5,[rotate,request,disconnect,move,submit,adopt,clear,detach,skip,attach,connect],[2,1,1,0],0.3,1)
+wwwwwrole
+qqqqq[worker, 5, [rotate,request,disconnect,move,submit,adopt,clear,detach,skip,attach,connect], [2,1,1,0], 0.3, 1]
+percept: thing(4,-1,obstacle,)
+wwwwwthing
+qqqqq[4, -1, obstacle, ]
+percept: thing(4,1,obstacle,)
+wwwwwthing
+qqqqq[4, 1, obstacle, ]
+percept: task(task0,137,10,[req(0,1,b2)])
+wwwwwtask
+qqqqq[task0, 137, 10, [req(0,1,b2)]]
+percept: step(9)
+wwwwwstep
+qqqqq[9]
+percept: requestAction
+wwwwwrequestAction
+qqqqq[]
+percept: role(explorer,7,[rotate,move,adopt,clear,detach,survey,skip,attach],[3,0],0.3,1)
+wwwwwrole
+qqqqq[explorer, 7, [rotate,move,adopt,clear,detach,survey,skip,attach], [3,0], 0.3, 1]
+percept: thing(-3,1,obstacle,)
+wwwwwthing
+qqqqq[-3, 1, obstacle, ]
+percept: thing(-5,0,obstacle,)
+wwwwwthing
+qqqqq[-5, 0, obstacle, ]
+percept: thing(-3,-1,obstacle,)
+wwwwwthing
+qqqqq[-3, -1, obstacle, ]
+percept: thing(-1,-2,obstacle,)
+wwwwwthing
+qqqqq[-1, -2, obstacle, ]
+percept: thing(-1,-4,obstacle,)
+wwwwwthing
+qqqqq[-1, -4, obstacle, ]
+percept: thing(1,-1,obstacle,)
+wwwwwthing
+qqqqq[1, -1, obstacle, ]
+percept: thing(1,-3,obstacle,)
+wwwwwthing
+qqqqq[1, -3, obstacle, ]
+percept: thing(3,-2,obstacle,)
+wwwwwthing
+qqqqq[3, -2, obstacle, ]
+percept: thing(3,0,obstacle,)
+wwwwwthing
+qqqqq[3, 0, obstacle, ]
+percept: thing(3,2,obstacle,)
+wwwwwthing
+qqqqq[3, 2, obstacle, ]
+percept: task(task1,119,40,[req(0,1,b1),req(69,1,b1)])
+wwwwwtask
+qqqqq[task1, 119, 40, [req(0,1,b1),req(69,1,b1)]]
+percept: role(default,5,[rotate,move,adopt,clear,detach,skip],[1],0.3,1)
+wwwwwrole
+qqqqq[default, 5, [rotate,move,adopt,clear,detach,skip], [1], 0.3, 1]
+percept: thing(-4,0,obstacle,)
+wwwwwthing
+qqqqq[-4, 0, obstacle, ]
+percept: thing(-2,3,obstacle,)
+wwwwwthing
+qqqqq[-2, 3, obstacle, ]
+percept: steps(750)
+wwwwwsteps
+qqqqq[750]
+percept: thing(2,3,obstacle,)
+wwwwwthing
+qqqqq[2, 3, obstacle, ]
+percept: thing(-2,-3,obstacle,)
+wwwwwthing
+qqqqq[-2, -3, obstacle, ]
+percept: thing(0,-2,obstacle,)
+wwwwwthing
+qqqqq[0, -2, obstacle, ]
+percept: thing(2,-1,obstacle,)
+wwwwwthing
+qqqqq[2, -1, obstacle, ]
+percept: thing(0,-4,obstacle,)
+wwwwwthing
+qqqqq[0, -4, obstacle, ]
+percept: thing(2,-3,obstacle,)
+wwwwwthing
+qqqqq[2, -3, obstacle, ]
+percept: thing(4,0,obstacle,)
+wwwwwthing
+qqqqq[4, 0, obstacle, ]
+percept: role(digger,5,[rotate,move,adopt,clear,detach,skip],[1,0],1.0,5)
+wwwwwrole
+qqqqq[digger, 5, [rotate,move,adopt,clear,detach,skip], [1,0], 1.0, 5]
+percept: role(constructor,5,[rotate,request,disconnect,move,submit,adopt,clear,detach,skip,attach,connect],[1],0.3,1)
+wwwwwrole
+qqqqq[constructor, 5, [rotate,request,disconnect,move,submit,adopt,clear,detach,skip,attach,connect], [1], 0.3, 1]
+percept: thing(0,0,entity,A)
+wwwwwthing
+qqqqq[0, 0, entity, A]
+percept: timestamp(1645222653039)
+wwwwwtimestamp
+qqqqq[1645222653039]
+percept: role(default)
+wwwwwrole
+qqqqq[default]
+percept: thing(-3,0,obstacle,)
+wwwwwthing
+qqqqq[-3, 0, obstacle, ]
+percept: thing(-3,2,obstacle,)
+wwwwwthing
+qqqqq[-3, 2, obstacle, ]
+percept: norm(n1,10,198,[requirement(role,digger,1,)],14)
+wwwwwnorm
+qqqqq[n1, 10, 198, [requirement(role,digger,1,)], 14]
+percept: actionID(9)
+wwwwwactionID
+qqqqq[9]
