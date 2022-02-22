@@ -4,10 +4,12 @@ import eis.iilang.Action;
 import eis.iilang.Identifier
 import java.util.List;
 
+global massim.eismassim.EnvironmentInterface eis;
+
 rule "If there is an obstacle in north"
 when
     $par : Percept(getName().equals("lastActionResult"), getParameters().toString().equals("[failed_path]"));
 then
     System.out.println("fire detected, starting alarm! ");
-    new Action("move", new Identifier("e"));
+    eis.performAction("A1", new Action("move", new Identifier("e")));
 end

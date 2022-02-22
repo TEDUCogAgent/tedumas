@@ -1,4 +1,4 @@
-package massim.javaagents;
+package massim.tedumas;
 
 import org.kie.api.KieServices;
 import org.kie.api.runtime.KieContainer;

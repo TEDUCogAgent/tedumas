@@ -1,4 +1,4 @@
-package massim.javaagents;
+package massim.tedumas;
 
 import eis.exceptions.ManagementException;
 import eis.iilang.EnvironmentState;
@@ -8,7 +8,6 @@ import org.kie.api.runtime.KieContainer;
 import org.kie.api.runtime.KieSession;
 
 import java.io.File;
-import java.util.Scanner;
 
 /**
  * Starts a new scheduler.
@@ -69,13 +68,15 @@ public class Main {
         }
 
         System.out.println("PHASE 3: CONNECTING SCHEDULER AND ENVIRONMENT");
+        scheduler.ksession = ksession;
         scheduler.setEnvironment(ei);
 
         System.out.println("PHASE 4: RUNNING");
         int step = 0;
         while ((ei.getState() == EnvironmentState.RUNNING)) {
             System.out.println("SCHEDULER STEP " + step);
-            scheduler.step(ksession);
+
+            scheduler.step();
             step++;
         }
     }

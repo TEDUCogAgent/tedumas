@@ -1,9 +1,7 @@
-package massim.javaagents.agents;
+package massim.tedumas.agents;
 
 import eis.iilang.*;
-import massim.javaagents.MailService;
-import massim.javaagents.RuleEngine;
-import massim.javaagents.Scheduler;
+import massim.tedumas.MailService;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 import org.kie.api.runtime.KieSession;

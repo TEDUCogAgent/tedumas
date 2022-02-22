@@ -1,4 +1,4 @@
-package massim.javaagents;
+package massim.tedumas;
 
 import eis.AgentListener;
 import eis.EnvironmentListener;
@@ -9,8 +9,8 @@ import eis.exceptions.RelationException;
 import eis.iilang.EnvironmentState;
 import eis.iilang.Percept;
 import massim.eismassim.EnvironmentInterface;
-import massim.javaagents.agents.Agent;
-import massim.javaagents.agents.BasicAgent;
+import massim.tedumas.agents.Agent;
+import massim.tedumas.agents.BasicAgent;
 
 import org.apache.logging.log4j.LogManager;
 
@@ -32,7 +32,7 @@ import java.util.*;
 public class Scheduler implements AgentListener, EnvironmentListener {
     private static final Logger
             logger = LogManager.getLogger(Scheduler.class);
-
+    public KieSession ksession;
     /**
      * Holds configured agent data.
      */
@@ -101,6 +101,7 @@ public class Scheduler implements AgentListener, EnvironmentListener {
     void setEnvironment(EnvironmentInterface ei) {
         this.eis = ei;
         MailService mailService = new MailService();
+        ksession.setGlobal("eis", ei);
         for (AgentConf agentConf : agentConfigurations) {
 
             Agent agent = null;
@@ -138,7 +139,7 @@ public class Scheduler implements AgentListener, EnvironmentListener {
     /**
      * Steps all agents and relevant infrastructure.
      */
-    void step(KieSession ksession) {
+    void step() {
         // retrieve percepts for all agents
         List<Agent> newPerceptAgents = new ArrayList<>();
 

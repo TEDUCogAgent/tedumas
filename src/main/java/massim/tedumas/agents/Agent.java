@@ -1,7 +1,7 @@
-package massim.javaagents.agents;
+package massim.tedumas.agents;
 
 import eis.iilang.Percept;
-import massim.javaagents.MailService;
+import massim.tedumas.MailService;
 import org.kie.api.runtime.KieSession;
 
 import java.util.*;

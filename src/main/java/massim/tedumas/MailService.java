@@ -1,7 +1,7 @@
-package massim.javaagents;
+package massim.tedumas;
 
 import eis.iilang.Percept;
-import massim.javaagents.agents.Agent;
+import massim.tedumas.agents.Agent;
 
 import java.util.HashMap;
 import java.util.List;
