@@ -35,7 +35,7 @@ public abstract class Agent {
     /**
      * Called for each step.
      */
-    public abstract eis.iilang.Action step(KieSession ksession);
+    public abstract eis.iilang.Action step();
 
     /**
      * @return the name of the agent

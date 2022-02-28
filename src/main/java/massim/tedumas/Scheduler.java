@@ -21,6 +21,7 @@ import org.kie.api.runtime.KieSession;
 import java.io.IOException;
 import java.nio.file.Files;
 import java.nio.file.Paths;
+import java.text.SimpleDateFormat;
 import java.util.*;
 
 /**
@@ -30,9 +31,10 @@ import java.util.*;
  * (Also, queued and notifications should be disabled)
  */
 public class Scheduler implements AgentListener, EnvironmentListener {
+
     private static final Logger
             logger = LogManager.getLogger(Scheduler.class);
-    public KieSession ksession;
+
     /**
      * Holds configured agent data.
      */
@@ -101,13 +103,13 @@ public class Scheduler implements AgentListener, EnvironmentListener {
     void setEnvironment(EnvironmentInterface ei) {
         this.eis = ei;
         MailService mailService = new MailService();
-        ksession.setGlobal("eis", ei);
+
         for (AgentConf agentConf : agentConfigurations) {
 
             Agent agent = null;
             switch (agentConf.className) {
                 case "BasicAgent":
-                    agent = new BasicAgent(agentConf.name, mailService);
+                    agent = new BasicAgent(agentConf.name, mailService, ei);
                     break;
                 // [add further types here]
                 default:
@@ -161,8 +163,8 @@ public class Scheduler implements AgentListener, EnvironmentListener {
 
         // step all agents which have new percepts
         newPerceptAgents.forEach(agent -> {
-            eis.iilang.Action action = agent.step(ksession);
-            if (action != null && !agent.getName().equals("B1")) {
+            eis.iilang.Action action = agent.step();
+            if (action != null) { // && !agent.getName().equals("B1")) {
                 try {
                     eis.performAction(agent.getName(), action);
                 } catch (ActException e) {

@@ -3,11 +3,16 @@ package massim.tedumas;
 import eis.exceptions.ManagementException;
 import eis.iilang.EnvironmentState;
 import massim.eismassim.EnvironmentInterface;
+import org.apache.logging.log4j.LogManager;
+import org.apache.logging.log4j.Logger;
+import org.kie.api.KieBase;
 import org.kie.api.KieServices;
 import org.kie.api.runtime.KieContainer;
 import org.kie.api.runtime.KieSession;
 
 import java.io.File;
+import java.text.SimpleDateFormat;
+import java.util.Date;
 
 /**
  * Starts a new scheduler.
@@ -15,11 +20,6 @@ import java.io.File;
 public class Main {
 
     public static void main( String[] args ) {
-
-        KieServices kieServices = KieServices.Factory.get();
-        KieContainer kContainer = kieServices.getKieClasspathContainer();
-        KieSession ksession = kContainer.newKieSession();
-
         String configDir = "";
 
         System.out.println("PHASE 1: INSTANTIATING SCHEDULER");
@@ -68,14 +68,13 @@ public class Main {
         }
 
         System.out.println("PHASE 3: CONNECTING SCHEDULER AND ENVIRONMENT");
-        scheduler.ksession = ksession;
+
         scheduler.setEnvironment(ei);
 
         System.out.println("PHASE 4: RUNNING");
         int step = 0;
         while ((ei.getState() == EnvironmentState.RUNNING)) {
             System.out.println("SCHEDULER STEP " + step);
-
             scheduler.step();
             step++;
         }
