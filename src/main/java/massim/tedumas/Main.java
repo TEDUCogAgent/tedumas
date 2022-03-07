@@ -3,16 +3,8 @@ package massim.tedumas;
 import eis.exceptions.ManagementException;
 import eis.iilang.EnvironmentState;
 import massim.eismassim.EnvironmentInterface;
-import org.apache.logging.log4j.LogManager;
-import org.apache.logging.log4j.Logger;
-import org.kie.api.KieBase;
-import org.kie.api.KieServices;
-import org.kie.api.runtime.KieContainer;
-import org.kie.api.runtime.KieSession;
 
 import java.io.File;
-import java.text.SimpleDateFormat;
-import java.util.Date;
 
 /**
  * Starts a new scheduler.
@@ -63,6 +55,7 @@ public class Main {
 
         try {
             ei.start();
+            System.out.println("xx" + ei.getState());
         } catch (ManagementException e) {
             e.printStackTrace();
         }

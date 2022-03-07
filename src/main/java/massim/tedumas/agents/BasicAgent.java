@@ -1,22 +1,20 @@
 package massim.tedumas.agents;
 
-import bitronix.tm.TransactionManagerServices;
-import bitronix.tm.resource.jdbc.PoolingDataSource;
 import eis.iilang.*;
 import massim.eismassim.EnvironmentInterface;
 import massim.tedumas.MailService;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
-import org.drools.persistence.api.PersistenceContextManager;
+import org.garret.perst.IPersistentSet;
+import org.garret.perst.Index;
+import org.garret.perst.Storage;
+import org.garret.perst.StorageFactory;
 import org.kie.api.KieBase;
 import org.kie.api.KieServices;
-import org.kie.api.persistence.jpa.KieStoreServices;
-import org.kie.api.runtime.Environment;
-import org.kie.api.runtime.EnvironmentName;
 import org.kie.api.runtime.KieContainer;
 import org.kie.api.runtime.KieSession;
 
-import javax.persistence.Persistence;
+import java.util.Iterator;
 import java.util.List;
 
 /**
@@ -30,56 +28,80 @@ public class BasicAgent extends Agent {
     KieContainer KContainer;
     KieBase KBase;
     KieSession KSession;
-    private PersistenceContextManager jpm;
+    Storage db;
+    Index root;
+    IPersistentSet classExtent;
+
     /**
      * Constructor.
+     *
      * @param name    the agent's name
      * @param mailbox the mail facility
      */
     public BasicAgent(String name, MailService mailbox, EnvironmentInterface ei) {
         super(name, mailbox);
 
-        PoolingDataSource ds = new PoolingDataSource();
-        ds.setUniqueName( "jdbc/DS" + name );
-        ds.setClassName( "org.h2.jdbcx.JdbcDataSource" );
-        ds.setMaxPoolSize( 3 );
-        ds.setAllowLocalTransactions( true );
-        ds.getDriverProperties().put( "user", "sa" );
-        ds.getDriverProperties().put( "password", "sasa" );
-        ds.getDriverProperties().put( "URL", "jdbc:h2:file:./jdbc/DB" + name );
-        ds.init();
+        db = StorageFactory.getInstance().createStorage();
+        db.open(".\\db\\" + name + ".dbs", Storage.DEFAULT_PAGE_POOL_SIZE);
+
+        root = (Index) db.getRoot(); // get storage root
+        if (root == null) {
+            // Root is not yet defined: storage is not initialized
+            root = db.createIndex(String.class, // key type
+                    true); // unique index
+            db.setRoot(root);
+        }
+
+        classExtent = (IPersistentSet) root.get("eis.iilang.Percept");
+        if (classExtent == null) {
+            classExtent = db.createSet(); // create class extent
+            root.put("eis.iilang.Percept", classExtent);
+        }
 
         KServices = KieServices.Factory.get();
-
-        Environment env = KServices.newEnvironment();
-        env.set( EnvironmentName.ENTITY_MANAGER_FACTORY,
-                Persistence.createEntityManagerFactory( "Persist" + name));
-        env.set( EnvironmentName.TRANSACTION_MANAGER,
-                TransactionManagerServices.getTransactionManager() );
-
         KContainer = KServices.getKieClasspathContainer();
-        KieStoreServices kstore = KServices.getStoreServices();
-        KSession = kstore.newKieSession(KContainer.getKieBase("KBase" + name), null, env);
-        KSession.setGlobal("eis", ei);
-        KSession.fireAllRules();
-
+        KSession = KContainer.newKieSession("KSession" + name);
+        logger.info("##### " + this.getName() + " #####");
+        // iterator through all instance of the class
+        Iterator i = classExtent.iterator();
+        while (i.hasNext()) {
+            Percept percept = (Percept) i.next();
+            logger.info(percept);
+            KSession.insert(percept);
+            if (percept.getName().equals("Step_End"))
+                logger.info("##### " + this.getName() + " #####");
+        }
+        KSession.setGlobal("eis",ei);
+        //KSession.fireAllRules();
     }
 
     @Override
-    public void handlePercept(Percept percept) {}
+    public void handlePercept(Percept percept) {
+    }
 
     @Override
-    public void handleMessage(Percept message, String sender) {}
+    public void handleMessage(Percept message, String sender) {
+    }
 
     @Override
     public Action step() {
         List<Percept> percepts = getPercepts();
         logger.info("**********  " + this.getName() + "  **********");
+
+
         for (Percept percept : percepts) {
             logger.info(percept);
             KSession.insert(percept);
             KSession.fireAllRules();
+            classExtent.add(percept);
+        }
 
+        Percept perceptTemp = new Percept("Step_End");
+        logger.info(perceptTemp);
+        KSession.insert(perceptTemp);
+        classExtent.add(perceptTemp);
+        db.commit();
+        for (Percept percept : percepts) {
             if (percept.getName().equals("actionID")) {
                 Parameter param = percept.getParameters().get(0);
                 if (param instanceof Numeral) {
