@@ -3,6 +3,7 @@ package massim.tedumas.agents;
 import eis.iilang.*;
 import massim.eismassim.EnvironmentInterface;
 import massim.tedumas.MailService;
+import massim.tedumas.PerstPercept;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 import org.garret.perst.IPersistentSet;
@@ -14,6 +15,8 @@ import org.kie.api.KieServices;
 import org.kie.api.runtime.KieContainer;
 import org.kie.api.runtime.KieSession;
 
+import java.sql.Timestamp;
+import java.util.Date;
 import java.util.Iterator;
 import java.util.List;
 
@@ -52,27 +55,26 @@ public class BasicAgent extends Agent {
             db.setRoot(root);
         }
 
-        classExtent = (IPersistentSet) root.get("eis.iilang.Percept");
+        classExtent = (IPersistentSet) root.get("PerstPercept");
         if (classExtent == null) {
             classExtent = db.createSet(); // create class extent
-            root.put("eis.iilang.Percept", classExtent);
+            root.put("PerstPercept", classExtent);
         }
 
         KServices = KieServices.Factory.get();
         KContainer = KServices.getKieClasspathContainer();
         KSession = KContainer.newKieSession("KSession" + name);
-        logger.info("##### " + this.getName() + " #####");
+
+        KSession.setGlobal("eis", ei);
+
         // iterator through all instance of the class
         Iterator i = classExtent.iterator();
         while (i.hasNext()) {
-            Percept percept = (Percept) i.next();
-            logger.info(percept);
-            KSession.insert(percept);
-            if (percept.getName().equals("Step_End"))
-                logger.info("##### " + this.getName() + " #####");
+            logger.info("##### " + this.getName() + " #####");
+            PerstPercept percepts = (PerstPercept) i.next();
+            KSession.insert(percepts.percpt);
+            logger.info(percepts.percpt);
         }
-        KSession.setGlobal("eis",ei);
-        //KSession.fireAllRules();
     }
 
     @Override
@@ -88,20 +90,17 @@ public class BasicAgent extends Agent {
         List<Percept> percepts = getPercepts();
         logger.info("**********  " + this.getName() + "  **********");
 
-
-        for (Percept percept : percepts) {
-            logger.info(percept);
-            KSession.insert(percept);
-            KSession.fireAllRules();
-            classExtent.add(percept);
-        }
-
-        Percept perceptTemp = new Percept("Step_End");
-        logger.info(perceptTemp);
-        KSession.insert(perceptTemp);
-        classExtent.add(perceptTemp);
+        PerstPercept pprcpt = new PerstPercept();
+        pprcpt.percpt = percepts;
+        pprcpt.tmstmp = (new Date()).getTime();
+        classExtent.add(pprcpt);
         db.commit();
+        logger.info(percepts);
+        KSession.insert(percepts);
+        KSession.fireAllRules();
+
         for (Percept percept : percepts) {
+            //Default code which comes from massim javaagents project
             if (percept.getName().equals("actionID")) {
                 Parameter param = percept.getParameters().get(0);
                 if (param instanceof Numeral) {

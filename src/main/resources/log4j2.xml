@@ -4,9 +4,9 @@
         <Console name="LogToConsole" target="SYSTEM_OUT">
             <PatternLayout pattern="%d{HH:mm:ss.SSS} [%t] %-5level %logger{36} - %msg%n"/>
         </Console>
-        <File name="LogToFile" fileName="logs/percepts-${date:yyyy-MM-dd-HH-mm-ssSSS}.log">
+        <File name="LogToFile" fileName="logs/percepts-${date:HH-mm-ssSSS}.log">
             <PatternLayout>
-                <Pattern>%d %m%n</Pattern>
+                <Pattern>%d{HH:mm:ss.SSS} %m%n</Pattern>
             </PatternLayout>
         </File>
     </Appenders>
