@@ -1,6 +1,7 @@
 package massim.tedumas.agents;
 
-import eis.iilang.*;
+import eis.iilang.Action;
+import eis.iilang.Percept;
 import massim.eismassim.EnvironmentInterface;
 import massim.tedumas.MailService;
 import massim.tedumas.PerstPercept;
@@ -14,8 +15,6 @@ import org.kie.api.KieBase;
 import org.kie.api.KieServices;
 import org.kie.api.runtime.KieContainer;
 import org.kie.api.runtime.KieSession;
-
-import java.sql.Timestamp;
 import java.util.Date;
 import java.util.Iterator;
 import java.util.List;
@@ -94,13 +93,17 @@ public class BasicAgent extends Agent {
         pprcpt.percpt = percepts;
         pprcpt.tmstmp = (new Date()).getTime();
         classExtent.add(pprcpt);
-        db.commit();
+
+        // !!!Important!!!
+        // If this is not uncommented persistence does not work
+        //db.commit();
+
         logger.info(percepts);
         KSession.insert(percepts);
         KSession.fireAllRules();
-
+/*
+        //Default code which comes from massim javaagents project
         for (Percept percept : percepts) {
-            //Default code which comes from massim javaagents project
             if (percept.getName().equals("actionID")) {
                 Parameter param = percept.getParameters().get(0);
                 if (param instanceof Numeral) {
@@ -112,6 +115,7 @@ public class BasicAgent extends Agent {
                 }
             }
         }
+ */
         return null;
     }
 }

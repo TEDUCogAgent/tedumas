@@ -160,6 +160,7 @@ public class Scheduler implements AgentListener, EnvironmentListener {
         // step all agents which have new percepts
         newPerceptAgents.forEach(agent -> {
             eis.iilang.Action action = agent.step();
+            /* !!! Important - Actions are executed by Drools
             if (action != null) { // && !agent.getName().equals("B1")) {
                 try {
                     eis.performAction(agent.getName(), action);
@@ -167,6 +168,7 @@ public class Scheduler implements AgentListener, EnvironmentListener {
                     System.out.println("Could not perform action " + action.getName() + " for " + agent.getName());
                 }
             }
+            */
         });
 
         if (newPerceptAgents.size() == 0) try {
