@@ -1,10 +1,11 @@
 package massim.tedumas.agents;
 
 import eis.iilang.Action;
+import eis.iilang.Parameter;
 import eis.iilang.Percept;
 import massim.eismassim.EnvironmentInterface;
 import massim.tedumas.MailService;
-import massim.tedumas.PerstPercept;
+import massim.tedumas.TPercept;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 import org.garret.perst.IPersistentSet;
@@ -15,6 +16,8 @@ import org.kie.api.KieBase;
 import org.kie.api.KieServices;
 import org.kie.api.runtime.KieContainer;
 import org.kie.api.runtime.KieSession;
+
+import java.util.Collections;
 import java.util.Date;
 import java.util.Iterator;
 import java.util.List;
@@ -54,10 +57,10 @@ public class BasicAgent extends Agent {
             db.setRoot(root);
         }
 
-        classExtent = (IPersistentSet) root.get("PerstPercept");
+        classExtent = (IPersistentSet) root.get("TPercept");
         if (classExtent == null) {
             classExtent = db.createSet(); // create class extent
-            root.put("PerstPercept", classExtent);
+            root.put("TPercept", classExtent);
         }
 
         KServices = KieServices.Factory.get();
@@ -65,14 +68,22 @@ public class BasicAgent extends Agent {
         KSession = KContainer.newKieSession("KSession" + name);
 
         KSession.setGlobal("eis", ei);
+        KSession.setGlobal("logger", logger);
 
+        int previousPerceptID = -1;
+        int currentPerceptID = 0;
         // iterator through all instance of the class
         Iterator i = classExtent.iterator();
         while (i.hasNext()) {
-            logger.info("##### " + this.getName() + " #####");
-            PerstPercept percepts = (PerstPercept) i.next();
-            KSession.insert(percepts.percpt);
-            logger.info(percepts.percpt);
+            TPercept tpercept = (TPercept) i.next();
+            currentPerceptID = tpercept.prcpt_id;
+            if(previousPerceptID != currentPerceptID) {
+                logger.info("##### " + this.getName() + " #####");
+                previousPerceptID = currentPerceptID;
+            }
+            KSession.insert(tpercept);
+            logger.info(tpercept);
+
         }
     }
 
@@ -85,25 +96,29 @@ public class BasicAgent extends Agent {
     }
 
     @Override
-    public Action step() {
+    public Action step(int stepCount) {
         List<Percept> percepts = getPercepts();
         logger.info("**********  " + this.getName() + "  **********");
 
-        PerstPercept pprcpt = new PerstPercept();
-        pprcpt.percpt = percepts;
-        pprcpt.tmstmp = (new Date()).getTime();
-        classExtent.add(pprcpt);
 
-        // !!!Important!!!
-        // If this is not uncommented persistence does not work
-        //db.commit();
-
-        logger.info(percepts);
-        KSession.insert(percepts);
-        KSession.fireAllRules();
-/*
-        //Default code which comes from massim javaagents project
         for (Percept percept : percepts) {
+            TPercept tprcpt = new TPercept();
+            tprcpt.prcpt = percept;
+            tprcpt.tmstmp = (new Date()).getTime();
+            tprcpt.prcpt_id = stepCount;
+
+
+            System.out.println("aaaaaaaa" + percept.getName() + " " + percept.getParameters().toString());
+            System.out.println("bbbbbbbb" + percept.getName() + " " + percept.getParameters().isEmpty());
+            System.out.println("cccccccc" + percept.getName() + " " + percept.getParameters().size());
+            if(percept.getName().equals("lastActionResult"))
+                System.out.println("dddddddd" + percept.getName() + " " + percept.getParameters());
+
+            classExtent.add(tprcpt);
+            logger.info(tprcpt);
+            KSession.insert(tprcpt);
+            KSession.fireAllRules();
+            /* Default code which comes from massim javaagents project
             if (percept.getName().equals("actionID")) {
                 Parameter param = percept.getParameters().get(0);
                 if (param instanceof Numeral) {
@@ -114,8 +129,11 @@ public class BasicAgent extends Agent {
                     }
                 }
             }
+            */
         }
- */
+        // !!!Important!!!
+        // If this is not uncommented persistence does not work
+        //db.commit();
         return null;
     }
 }

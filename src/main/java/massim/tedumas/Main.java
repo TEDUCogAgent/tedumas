@@ -68,7 +68,7 @@ public class Main {
         int step = 0;
         while ((ei.getState() == EnvironmentState.RUNNING)) {
             System.out.println("SCHEDULER STEP " + step);
-            scheduler.step();
+            scheduler.step(step);
             step++;
         }
     }

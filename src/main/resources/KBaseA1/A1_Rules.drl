@@ -4,19 +4,35 @@ import eis.iilang.Action;
 import eis.iilang.Identifier;
 import java.util.List;
 import eis.exceptions.ActException;
+import org.apache.logging.log4j.Logger;
+import massim.tedumas.TPercept;
 
+global Logger logger;
 global massim.eismassim.EnvironmentInterface eis;
+
 
 rule "If simulation starts for the first time"
 when
-    $par : List() from collect (Percept(getName().equals("timestamp"), getParameters().toString().equals(null)));
+    $prcpt : TPercept(prcpt.getName().equals("lastAction"), prcpt.getParameters().toString().equals("[]"))
 then
+    logger.info("$$$$$ RULE EXECUTION : " + "If simulation starts for the first time : move north");
     eis.performAction("A1", new Action("move", new Identifier("n")));
 end
 
+
+rule "When previous move is successful"
+when
+    $prcpt : TPercept(prcpt.getName().equals("lastActionResult"), prcpt.getParameters().toString().equals("[success]"))
+then
+    logger.info("$$$$$ RULE EXECUTION : " + "When previous move is successful : move north");
+    eis.performAction("A1", new Action("move", new Identifier("n")));
+end
+
+
 rule "If there is an obstacle in front of the agentA1"
 when
-    $par : List() from collect (Percept(getName().equals("lastActionResult"), getParameters().toString().equals("[failed_path]")));
+    $prcpt : TPercept(prcpt.getName().equals("lastActionResult"), prcpt.getParameters().toString().equals("[failed_path]"))
 then
+    logger.info("$$$$$ RULE EXECUTION : " + "If there is an obstacle in front of the agent : move east");
     eis.performAction("A1", new Action("move", new Identifier("e")));
 end

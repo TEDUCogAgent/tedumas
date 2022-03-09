@@ -137,7 +137,7 @@ public class Scheduler implements AgentListener, EnvironmentListener {
     /**
      * Steps all agents and relevant infrastructure.
      */
-    void step() {
+    void step(int stepCount) {
         // retrieve percepts for all agents
         List<Agent> newPerceptAgents = new ArrayList<>();
 
@@ -159,7 +159,7 @@ public class Scheduler implements AgentListener, EnvironmentListener {
 
         // step all agents which have new percepts
         newPerceptAgents.forEach(agent -> {
-            eis.iilang.Action action = agent.step();
+            eis.iilang.Action action = agent.step(stepCount);
             /* !!! Important - Actions are executed by Drools
             if (action != null) { // && !agent.getName().equals("B1")) {
                 try {
