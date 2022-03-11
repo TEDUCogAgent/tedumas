@@ -109,6 +109,8 @@ public class BasicAgent extends Agent {
             tprcpt.tmstmp = (new Date()).getTime();
             tprcpt.prcptid = stepCount;
 
+            //if(tprcpt.prcpt.getName().equals("lastAction"))
+                //System.out.println(tprcpt.prcpt.getParameters().toString());
             /*System.out.println("aaaaaaaa" + percept.getName() + " " + percept.getParameters().toString());
             System.out.println("bbbbbbbb" + percept.getName() + " " + percept.getParameters().isEmpty());
             System.out.println("cccccccc" + percept.getName() + " " + percept.getParameters().size());
