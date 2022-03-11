@@ -6,13 +6,13 @@ import java.util.List;
 
 
 public class TPercept {
-    public int prcpt_id;
+    public int prcptid;
     public long tmstmp;
     public Percept prcpt;
 
     @Override
     public String toString() {
-        return prcpt_id +
+        return prcptid +
                 ", " + tmstmp +
                 ", " + prcpt;
     }

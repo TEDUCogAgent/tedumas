@@ -17,10 +17,10 @@ import org.kie.api.KieServices;
 import org.kie.api.runtime.KieContainer;
 import org.kie.api.runtime.KieSession;
 
-import java.util.Collections;
 import java.util.Date;
 import java.util.Iterator;
 import java.util.List;
+import java.util.Random;
 
 /**
  * A very basic agent.
@@ -69,6 +69,8 @@ public class BasicAgent extends Agent {
 
         KSession.setGlobal("eis", ei);
         KSession.setGlobal("logger", logger);
+        KSession.setGlobal("agent", this);
+
 
         int previousPerceptID = -1;
         int currentPerceptID = 0;
@@ -76,8 +78,8 @@ public class BasicAgent extends Agent {
         Iterator i = classExtent.iterator();
         while (i.hasNext()) {
             TPercept tpercept = (TPercept) i.next();
-            currentPerceptID = tpercept.prcpt_id;
-            if(previousPerceptID != currentPerceptID) {
+            currentPerceptID = tpercept.prcptid;
+            if (previousPerceptID != currentPerceptID) {
                 logger.info("##### " + this.getName() + " #####");
                 previousPerceptID = currentPerceptID;
             }
@@ -105,14 +107,13 @@ public class BasicAgent extends Agent {
             TPercept tprcpt = new TPercept();
             tprcpt.prcpt = percept;
             tprcpt.tmstmp = (new Date()).getTime();
-            tprcpt.prcpt_id = stepCount;
+            tprcpt.prcptid = stepCount;
 
-
-            System.out.println("aaaaaaaa" + percept.getName() + " " + percept.getParameters().toString());
+            /*System.out.println("aaaaaaaa" + percept.getName() + " " + percept.getParameters().toString());
             System.out.println("bbbbbbbb" + percept.getName() + " " + percept.getParameters().isEmpty());
             System.out.println("cccccccc" + percept.getName() + " " + percept.getParameters().size());
-            if(percept.getName().equals("lastActionResult"))
-                System.out.println("dddddddd" + percept.getName() + " " + percept.getParameters());
+            if (percept.getName().equals("lastActionResult"))
+                System.out.println("dddddddd" + percept.getName() + " " + percept.getParameters());*/
 
             classExtent.add(tprcpt);
             logger.info(tprcpt);
@@ -135,5 +136,24 @@ public class BasicAgent extends Agent {
         // If this is not uncommented persistence does not work
         //db.commit();
         return null;
+    }
+
+    public String generateRandomDirection() {
+        int i = (new Random()).nextInt(4);
+        String direction;
+        switch (i) {
+            case 1:
+                direction = "s";
+                break;
+            case 2:
+                direction = "e";
+                break;
+            case 3:
+                direction = "w";
+                break;
+            default:
+                direction = "n";
+        }
+        return direction;
     }
 }
