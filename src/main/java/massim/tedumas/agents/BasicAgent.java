@@ -1,7 +1,6 @@
 package massim.tedumas.agents;
 
 import eis.iilang.Action;
-import eis.iilang.Parameter;
 import eis.iilang.Percept;
 import massim.eismassim.EnvironmentInterface;
 import massim.tedumas.MailService;
@@ -16,15 +15,11 @@ import org.kie.api.KieBase;
 import org.kie.api.KieServices;
 import org.kie.api.runtime.KieContainer;
 import org.kie.api.runtime.KieSession;
-
 import java.util.Date;
 import java.util.Iterator;
 import java.util.List;
 import java.util.Random;
 
-/**
- * A very basic agent.
- */
 public class BasicAgent extends Agent {
     private static final Logger
             logger = LogManager.getLogger(BasicAgent.class);
@@ -71,7 +66,6 @@ public class BasicAgent extends Agent {
         KSession.setGlobal("logger", logger);
         KSession.setGlobal("agent", this);
 
-
         int previousPerceptID = -1;
         int currentPerceptID = 0;
         // iterator through all instance of the class
@@ -85,7 +79,6 @@ public class BasicAgent extends Agent {
             }
             KSession.insert(tpercept);
             logger.info(tpercept);
-
         }
     }
 
@@ -120,7 +113,7 @@ public class BasicAgent extends Agent {
             classExtent.add(tprcpt);
             logger.info(tprcpt);
             KSession.insert(tprcpt);
-            KSession.fireAllRules();
+
             /* Default code which comes from massim javaagents project
             if (percept.getName().equals("actionID")) {
                 Parameter param = percept.getParameters().get(0);
@@ -131,31 +124,22 @@ public class BasicAgent extends Agent {
                         return new Action("move", new Identifier("n"));
                     }
                 }
-            }
-            */
+            }*/
         }
         // !!!Important!!!
-        // If this is not uncommented persistence does not work
+        // If this is commented, persistence does not work
         //db.commit();
+        KSession.fireAllRules();
         return null;
     }
 
     public String generateRandomDirection() {
         int i = (new Random()).nextInt(4);
-        String direction;
-        switch (i) {
-            case 1:
-                direction = "s";
-                break;
-            case 2:
-                direction = "e";
-                break;
-            case 3:
-                direction = "w";
-                break;
-            default:
-                direction = "n";
-        }
-        return direction;
+        return switch (i) {
+            case 1 -> "s";
+            case 2 -> "e";
+            case 3 -> "w";
+            default -> "n";
+        };
     }
 }

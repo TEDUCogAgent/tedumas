@@ -32,7 +32,7 @@ then
     logger.info("$$$$$ RULE EXECUTION : " + "When previous move is successful : move randomly : " + $direction.substring(2,3));
 end
 
-rule "If there is an obstacle in front of the agentA1"
+rule "If there is an obstacle in front of the agentA1 after a move"
 when
     $tprcpt : TPercept(prcpt.getName().equals("lastAction"), prcpt.getParameters().toString().equals("[move]"))
     $lstactnrslt : TPercept(prcptid == $tprcpt.prcptid, prcpt.getName().equals("lastActionResult"), prcpt.getParameters().toString().equals("[failed_path]"))
@@ -49,7 +49,7 @@ then
     logger.info("$$$$$ RULE EXECUTION : " + "If there is an obstacle in front of the agent : clear " + $direction);
 end
 
-rule "If the obstacle in front of the agentA1 is cleared"
+rule "If the obstacle in front of the agentA1 is successfully cleared"
 when
     $tprcpt : TPercept(prcpt.getName().equals("lastAction"), prcpt.getParameters().toString().equals("[clear]"))
     $lstactnrslt : TPercept(prcptid == $tprcpt.prcptid, prcpt.getName().equals("lastActionResult"), prcpt.getParameters().toString().equals("[success]"))
@@ -75,7 +75,7 @@ then
     logger.info("$$$$$ RULE EXECUTION : " + "If massim produces failed_random randomly : move randomly : " + direction);
 end
 
-rule "If massim produces failed_status"
+rule "If massim produces failed_status after a move"
 when
     $tprcpt : TPercept(prcpt.getName().equals("lastAction"), prcpt.getParameters().toString().equals("[move]"))
     $lstactnrslt : TPercept(prcptid == $tprcpt.prcptid, prcpt.getName().equals("lastActionResult"), prcpt.getParameters().toString().equals("[failed_status]"))

@@ -55,7 +55,6 @@ public class Main {
 
         try {
             ei.start();
-            System.out.println("xx" + ei.getState());
         } catch (ManagementException e) {
             e.printStackTrace();
         }

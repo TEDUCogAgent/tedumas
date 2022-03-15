@@ -14,6 +14,7 @@ import massim.tedumas.agents.BasicAgent;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 import org.json.JSONObject;
+
 import java.io.IOException;
 import java.nio.file.Files;
 import java.nio.file.Paths;
@@ -134,9 +135,7 @@ public class Scheduler implements AgentListener, EnvironmentListener {
         ei.attachEnvironmentListener(this);
     }
 
-    /**
-     * Steps all agents and relevant infrastructure.
-     */
+    /*** Steps all agents and relevant infrastructure. */
     void step(int stepCount) {
         // retrieve percepts for all agents
         List<Agent> newPerceptAgents = new ArrayList<>();
@@ -154,7 +153,8 @@ public class Scheduler implements AgentListener, EnvironmentListener {
                     newPerceptAgents.add(ag);
                 }
                 ag.setPercepts(addList, delList);
-            } catch (PerceiveException ignored) { }
+            } catch (PerceiveException ignored) {
+            }
         });
 
         // step all agents which have new percepts
