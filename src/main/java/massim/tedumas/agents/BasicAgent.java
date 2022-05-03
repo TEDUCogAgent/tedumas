@@ -72,7 +72,7 @@ public class BasicAgent extends Agent {
         Iterator i = classExtent.iterator();
         while (i.hasNext()) {
             TPercept tpercept = (TPercept) i.next();
-            currentPerceptID = tpercept.prcptid;
+            currentPerceptID = tpercept.stepID;
             if (previousPerceptID != currentPerceptID) {
                 logger.info("##### " + this.getName() + " #####");
                 previousPerceptID = currentPerceptID;
@@ -97,22 +97,22 @@ public class BasicAgent extends Agent {
 
 
         for (Percept percept : percepts) {
-            TPercept tprcpt = new TPercept();
-            tprcpt.prcpt = percept;
-            tprcpt.tmstmp = (new Date()).getTime();
-            tprcpt.prcptid = stepCount;
+            TPercept tPercept = new TPercept();
+            tPercept.percept = percept;
+            tPercept.timeStamp = (new Date()).getTime();
+            tPercept.stepID = stepCount;
 
-            //if(tprcpt.prcpt.getName().equals("lastAction"))
-                //System.out.println(tprcpt.prcpt.getParameters().toString());
+            //if(tPercept.percept.getName().equals("lastAction"))
+                //System.out.println(tPercept.percept.getParameters().toString());
             /*System.out.println("aaaaaaaa" + percept.getName() + " " + percept.getParameters().toString());
             System.out.println("bbbbbbbb" + percept.getName() + " " + percept.getParameters().isEmpty());
             System.out.println("cccccccc" + percept.getName() + " " + percept.getParameters().size());
             if (percept.getName().equals("lastActionResult"))
                 System.out.println("dddddddd" + percept.getName() + " " + percept.getParameters());*/
 
-            classExtent.add(tprcpt);
-            logger.info(tprcpt);
-            KSession.insert(tprcpt);
+            classExtent.add(tPercept);
+            logger.info(tPercept);
+            KSession.insert(tPercept);
 
             /* Default code which comes from massim javaagents project
             if (percept.getName().equals("actionID")) {
