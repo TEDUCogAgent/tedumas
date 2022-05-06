@@ -1,10 +1,11 @@
 package massim.tedumas.agents;
 
 import eis.iilang.Action;
+import eis.iilang.Identifier;
 import eis.iilang.Percept;
 import massim.eismassim.EnvironmentInterface;
 import massim.tedumas.MailService;
-import massim.tedumas.TPercept;
+import massim.tedumas.TEDUPercept;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 import org.garret.perst.IPersistentSet;
@@ -52,10 +53,10 @@ public class BasicAgent extends Agent {
             db.setRoot(root);
         }
 
-        classExtent = (IPersistentSet) root.get("TPercept");
+        classExtent = (IPersistentSet) root.get("TEDUPercept");
         if (classExtent == null) {
             classExtent = db.createSet(); // create class extent
-            root.put("TPercept", classExtent);
+            root.put("TEDUPercept", classExtent);
         }
 
         KServices = KieServices.Factory.get();
@@ -71,7 +72,7 @@ public class BasicAgent extends Agent {
         // iterator through all instance of the class
         Iterator i = classExtent.iterator();
         while (i.hasNext()) {
-            TPercept tpercept = (TPercept) i.next();
+            TEDUPercept tpercept = (TEDUPercept) i.next();
             currentPerceptID = tpercept.stepID;
             if (previousPerceptID != currentPerceptID) {
                 logger.info("##### " + this.getName() + " #####");
@@ -97,7 +98,7 @@ public class BasicAgent extends Agent {
 
 
         for (Percept percept : percepts) {
-            TPercept tPercept = new TPercept();
+            TEDUPercept tPercept = new TEDUPercept();
             tPercept.percept = percept;
             tPercept.timeStamp = (new Date()).getTime();
             tPercept.stepID = stepCount;
@@ -142,4 +143,34 @@ public class BasicAgent extends Agent {
             default -> "n";
         };
     }
+
+    public StringBuilder routeTowardsDispenser(Percept percept, TEDUPercept teduPercept){
+        StringBuilder route = new StringBuilder();
+        int x = Integer.parseInt(percept.getParameters().get(0).toString());
+        int y = Integer.parseInt(percept.getParameters().get(1).toString());
+
+        while(x!=0){
+            if(x<0){
+                route.append("w");
+                x++;
+            }
+            else {
+                route.append("e");
+                x--;
+            }
+        }
+        while(y!=0){
+            if(y<0){
+                route.append("n");
+                y++;
+            }
+            else {
+                route.append("s");
+                y--;
+            }
+        }
+        teduPercept.route = route;
+        return route;
+    }
+
 }
