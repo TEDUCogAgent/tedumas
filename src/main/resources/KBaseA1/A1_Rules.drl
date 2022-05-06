@@ -36,7 +36,7 @@ when
     $tPercept: TEDUPercept(percept.getName().equals("lastAction"), percept.getParameters().toString().equals("[]"))
 then
     String direction = agent.generateRandomDirection();
-    eis.performAction("A1", new Action("move", new Identifier("w")));
+    eis.performAction("A1", new Action("move", new Identifier(direction)));
     logger.info("$$$$$RULE: If simulation starts for the first time move randomly: " + direction);
 end
 
@@ -47,7 +47,7 @@ when
     $lastActionParams: TEDUPercept(stepID == $tPercept.stepID, percept.getName().equals("lastActionParams"),
     $direction: percept.getParameters().toString())
 then
-    eis.performAction("A1", new Action("move", new Identifier("s")));
+    eis.performAction("A1", new Action("move", new Identifier($direction.substring(2,3))));
     logger.info("$$$$$RULE: When previous move is successful move in the same direction as before: " + $direction.substring(2,3));
 end
 
@@ -92,7 +92,7 @@ when
     $lastActionResult: TEDUPercept(percept.getName().equals("lastActionResult"), percept.getParameters().toString().equals("[failed_random]"))
 then
     String direction = agent.generateRandomDirection();
-    eis.performAction("A1", new Action("move", new Identifier("s")));
+    eis.performAction("A1", new Action("move", new Identifier(direction)));
     logger.info("$$$$$RULE: If MASSim produces failed_random randomly, move randomly: " + direction);
 end
 
@@ -102,6 +102,6 @@ when
     $lastActionResult: TEDUPercept(stepID == $tPercept.stepID, percept.getName().equals("lastActionResult"), percept.getParameters().toString().equals("[failed_status]"))
 then
     String direction = agent.generateRandomDirection();
-    eis.performAction("A1", new Action("move", new Identifier("s")));
+    eis.performAction("A1", new Action("move", new Identifier(direction)));
     logger.info("$$$$$RULE: If MASSim produces failed_status, move randomly: " + direction);
 end
