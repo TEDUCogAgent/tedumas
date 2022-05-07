@@ -87,6 +87,17 @@ then
     logger.info("$$$$$RULE: After a successful clear, move to the cleared spot: " + $direction);
 end
 
+rule "If massim produces failed_random randomly after a clear action"
+when
+    $tPercept: TEDUPercept(percept.getName().equals("lastAction"), percept.getParameters().toString().equals("[clear]"))
+    $lastActionResult: TEDUPercept(percept.getName().equals("lastActionResult"), percept.getParameters().toString().equals("[failed_random]"))
+    $lastActionParams: TEDUPercept(stepID == $tPercept.stepID, percept.getName().equals("lastActionParams"),
+    $direction : percept.getParameters().toString())
+then
+    eis.performAction("A1", new Action("clear", new Numeral(Integer.parseInt($direction.substring(2,3))), new Numeral(Integer.parseInt($direction.substring(4,5)))));
+    logger.info("$$$$$RULE: If cleaning fails randomly keep on cleaning" + $direction);
+end
+
 rule "If massim produces failed_random randomly"
 when
     $lastActionResult: TEDUPercept(percept.getName().equals("lastActionResult"), percept.getParameters().toString().equals("[failed_random]"))
