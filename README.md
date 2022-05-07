@@ -10,4 +10,3 @@ A multiagnet system simulation for my senior project
 - Can examine the written percepts from the "logs" folder, it produces a new txt file every run and updates it with every percept encountered 
 
 ### Known Bugs
-- Even though the default assigned role to the agents have ability to attach a block, still failed_role is encountered. 
