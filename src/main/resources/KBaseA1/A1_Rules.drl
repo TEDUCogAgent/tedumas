@@ -14,16 +14,16 @@ global massim.eismassim.EnvironmentInterface eis;
 global BasicAgent agent;
 global StringBuilder route;
 
-rule "Attach Action: When near a dispenser attach block"
+rule "Request Action: When near a dispenser request block"
 when
-    $TEDUPercept: TEDUPercept(percept.getName().equals("thing"), identifyThing().equals("dispenser"), nearDispenser()==true,
+    $TEDUPercept: TEDUPercept(percept.getName().equals("thing"), identifyThing().equals("dispenser"), nearDispenser()==true, isSuitableForRequest()==true,
     $direction: dispenserWay())
 then
-    eis.performAction("A1", new Action("attach", new Identifier($direction)));
-    logger.info("$$$$$RULE: attach: " + $direction);
+    eis.performAction("A1", new Action("request", new Identifier($direction)));
+    logger.info("$$$$$RULE: request block: " + $direction);
 end
 
-rule "Attach Action: When encountered with a dispenser calculate the route towards it"
+rule "Request Action: When encountered with a dispenser calculate the route towards it"
 when
     $TEDUPercept: TEDUPercept(percept.getName().equals("thing"), identifyThing().equals("dispenser"))
 then

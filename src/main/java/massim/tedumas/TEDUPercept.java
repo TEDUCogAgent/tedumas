@@ -24,6 +24,12 @@ public class TEDUPercept {
         return percept.getParameters().get(2).toString();
     }
 
+    public boolean isSuitableForRequest(){
+        if (percept.getName().equals("role") && percept.getParameters().size()==1)
+            return percept.getParameters().get(0).toString().equals("worker") || percept.getParameters().get(0).toString().equals("constructor");
+        return false;
+    }
+
     public boolean nearDispenser(){
         return (Math.abs(Integer.parseInt(percept.getParameters().get(0).toString()))==1 &&
                 Math.abs(Integer.parseInt(percept.getParameters().get(1).toString()))==0 )
