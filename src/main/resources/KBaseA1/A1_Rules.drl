@@ -14,6 +14,25 @@ global massim.eismassim.EnvironmentInterface eis;
 global BasicAgent agent;
 global StringBuilder route;
 
+rule "Adopt Action: after a successful adopt keep on moving"
+when
+    $tPercept: TEDUPercept(percept.getName().equals("lastAction"), percept.getParameters().toString().equals("[adopt]"))
+    $lastActionResult: TEDUPercept(percept.getName().equals("lastActionResult"), percept.getParameters().toString().equals("[success]"))
+then
+    String direction = agent.generateRandomDirection();
+    eis.performAction("A1", new Action("move", new Identifier(direction)));
+    logger.info("$$$$$RULE: after adopting a role keep on moving: " + direction);
+end
+
+rule "Adopt Action"
+when
+    $TEDUPercept: TEDUPercept(percept.getName().equals("roleZone"), inRoleZone()==true)
+    $isDefault: TEDUPercept(percept.getName().equals("role"), isRoleDefault()==true)
+then
+    eis.performAction("A1", new Action("adopt", new Identifier("worker")));
+    logger.info("$$$$$RULE: adopt the worker role");
+end
+
 rule "Request Action: When near a dispenser request block"
 when
     $TEDUPercept: TEDUPercept(percept.getName().equals("thing"), identifyThing().equals("dispenser"), nearDispenser()==true, isSuitableForRequest()==true,
@@ -31,7 +50,7 @@ then
     logger.info("$$$$$RULE: route to the dispenser: " + myRoute);
 end
 
-rule "Start"
+rule "Move Action: Start"
 when
     $tPercept: TEDUPercept(percept.getName().equals("lastAction"), percept.getParameters().toString().equals("[]"))
 then

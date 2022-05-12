@@ -1,8 +1,11 @@
 package massim.tedumas;
 
 import eis.iilang.Percept;
-import java.lang.Math;
+import org.jbpm.process.core.datatype.impl.type.IntegerDataType;
 
+import java.lang.Math;
+import java.util.List;
+import java.util.Vector;
 
 
 public class TEDUPercept {
@@ -28,6 +31,18 @@ public class TEDUPercept {
         if (percept.getName().equals("role") && percept.getParameters().size()==1)
             return percept.getParameters().get(0).toString().equals("worker") || percept.getParameters().get(0).toString().equals("constructor");
         return false;
+    }
+
+    public boolean isRoleDefault(){
+        if (percept.getName().equals("role") && percept.getParameters().size()==1)
+            return percept.getParameters().get(0).toString().equals("default");
+        return false;
+    }
+
+    public boolean inRoleZone(){
+        return Integer.parseInt(percept.getParameters().get(0).toString())==0
+                &&
+                Integer.parseInt(percept.getParameters().get(1).toString())==0;
     }
 
     public boolean nearDispenser(){
