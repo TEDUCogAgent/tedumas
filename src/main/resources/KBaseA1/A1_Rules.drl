@@ -14,32 +14,59 @@ global massim.eismassim.EnvironmentInterface eis;
 global BasicAgent agent;
 global StringBuilder route;
 
-rule "Adopt Action: after a successful adopt keep on moving"
+rule "Request Action: failed_role"
 when
-    $tPercept: TEDUPercept(percept.getName().equals("lastAction"), percept.getParameters().toString().equals("[adopt]"))
-    $lastActionResult: TEDUPercept(percept.getName().equals("lastActionResult"), percept.getParameters().toString().equals("[success]"))
+    $tPercept: TEDUPercept(percept.getName().equals("lastActionResult"), percept.getParameters().toString().equals("[failed_role]"))
+then
+    eis.performAction("A1", new Action("skip"));
+    logger.info("$$$$$RULE: after failed_role skip");
+end
+
+rule "Request Action: after request had been successful"
+when
+    $lastAction: TEDUPercept(percept.getName().equals("lastAction"), percept.getParameters().toString().equals("[request]"))
+    $lastActionResult: TEDUPercept(stepID == $lastAction.stepID, percept.getName().equals("lastActionResult"), percept.getParameters().toString().equals("[success]"))
 then
     String direction = agent.generateRandomDirection();
     eis.performAction("A1", new Action("move", new Identifier(direction)));
-    logger.info("$$$$$RULE: after adopting a role keep on moving: " + direction);
+    logger.info("$$$$$RULE: after request had been successful move randomly: " + direction );
+end
+
+rule "Request Action: When near a dispenser request block"
+when
+    $TEDUPercept: TEDUPercept(percept.getName().equals("thing"), identifyThing().equals("dispenser"), nearDispenser()==true,
+    $direction: dispenserWay())
+then
+    eis.performAction("A1", new Action("request", new Identifier($direction)));
+    logger.info("$$$$$RULE: request block: " + $direction);
+end
+
+rule "Skip Action:"
+when
+    $tPercept: TEDUPercept(percept.getName().equals("lastAction"), percept.getParameters().toString().equals("[skip]"))
+    $lastActionResult: TEDUPercept(stepID == $tPercept.stepID, percept.getName().equals("lastActionResult"), percept.getParameters().toString().equals("[success]"))
+then
+    String direction = agent.generateRandomDirection();
+    eis.performAction("A1", new Action("move", new Identifier(direction)));
+    logger.info("$$$$$RULE: after skip move randomly: "+ direction);
+end
+
+rule "Adopt Action: after a successful adopt keep on moving"
+when
+    $tPercept: TEDUPercept(percept.getName().equals("lastAction"), percept.getParameters().toString().equals("[adopt]"))
+    $lastActionResult: TEDUPercept(stepID == $tPercept.stepID, percept.getName().equals("lastActionResult"), percept.getParameters().toString().equals("[success]"))
+then
+    eis.performAction("A1", new Action("skip"));
+    logger.info("$$$$$RULE: after adopting a role skip one action");
 end
 
 rule "Adopt Action"
 when
     $TEDUPercept: TEDUPercept(percept.getName().equals("roleZone"), inRoleZone()==true)
-    $isDefault: TEDUPercept(percept.getName().equals("role"), isRoleDefault()==true)
+    $isDefault: TEDUPercept(stepID == $TEDUPercept.stepID, percept.getName().equals("role"), isRoleDefault()==true)
 then
     eis.performAction("A1", new Action("adopt", new Identifier("worker")));
     logger.info("$$$$$RULE: adopt the worker role");
-end
-
-rule "Request Action: When near a dispenser request block"
-when
-    $TEDUPercept: TEDUPercept(percept.getName().equals("thing"), identifyThing().equals("dispenser"), nearDispenser()==true, isSuitableForRequest()==true,
-    $direction: dispenserWay())
-then
-    eis.performAction("A1", new Action("request", new Identifier($direction)));
-    logger.info("$$$$$RULE: request block: " + $direction);
 end
 
 rule "Request Action: When encountered with a dispenser calculate the route towards it"
