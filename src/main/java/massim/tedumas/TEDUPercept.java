@@ -1,11 +1,8 @@
 package massim.tedumas;
 
 import eis.iilang.Percept;
-import org.jbpm.process.core.datatype.impl.type.IntegerDataType;
-
 import java.lang.Math;
-import java.util.List;
-import java.util.Vector;
+
 
 
 public class TEDUPercept {
@@ -45,7 +42,7 @@ public class TEDUPercept {
                 Integer.parseInt(percept.getParameters().get(1).toString())==0;
     }
 
-    public boolean nearDispenser(){
+    public boolean nearDispenser(){ // -1,0
         return (Math.abs(Integer.parseInt(percept.getParameters().get(0).toString()))==1 &&
                 Math.abs(Integer.parseInt(percept.getParameters().get(1).toString()))==0 )
                         ||
@@ -65,5 +62,11 @@ public class TEDUPercept {
             c = 'n';
 
         return Character.toString(c);
+    }
+
+    public Boolean isRequestSuccessful(){
+        if (percept.getName().equals("role") && percept.getParameters().size()==1)
+            return percept.getParameters().get(0).toString().equals("worker") || percept.getParameters().get(0).toString().equals("constructor");
+        return false;
     }
 }
