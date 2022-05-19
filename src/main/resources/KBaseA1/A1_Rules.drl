@@ -112,7 +112,11 @@ end
 rule "Move Action: Start"
 when
     $tPercept: TEDUPercept(percept.getName().equals("lastAction"), percept.getParameters().toString().equals("[]"))
+    $taskPercept: TEDUPercept(percept.getName().equals("task"))
 then
+    if($taskPercept.percept.getParameters().get(0).toString().equals("task0"))
+        agent.parseTaskAndAssign($taskPercept.percept);
+
     String direction = agent.generateRandomDirection();
     eis.performAction("A1", new Action("move", new Identifier(direction)));
     //eis.performAction("A1", new Action("move", new Identifier("w")));

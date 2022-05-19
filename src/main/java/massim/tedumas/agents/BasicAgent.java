@@ -33,6 +33,13 @@ public class BasicAgent extends Agent {
     Index root;
     IPersistentSet classExtent;
 
+    //For the one choosen task to be completed
+    String nameOfTheTask;
+    String deadlineOfTheTask;
+    String rewardOfTheTask;
+    String[] requirementsOfTheTask = new String[4];
+
+
     /**
      * Constructor.
      *
@@ -104,7 +111,7 @@ public class BasicAgent extends Agent {
             tPercept.stepID = stepCount;
 
             //if(tPercept.percept.getName().equals("lastAction"))
-                //System.out.println(tPercept.percept.getParameters().toString());
+            //System.out.println(tPercept.percept.getParameters().toString());
             /*System.out.println("aaaaaaaa" + percept.getName() + " " + percept.getParameters().toString());
             System.out.println("bbbbbbbb" + percept.getName() + " " + percept.getParameters().isEmpty());
             System.out.println("cccccccc" + percept.getName() + " " + percept.getParameters().size());
@@ -171,6 +178,19 @@ public class BasicAgent extends Agent {
         }
         teduPercept.route = route;
         return route;
+    }
+
+
+    public void parseTaskAndAssign(Percept percept){
+        //[task0,195,160,[req(-1,2,b1),req(0,1,b2),req(0,2,b1),req(0,3,b2)]]
+        nameOfTheTask = percept.getParameters().toString().substring(1,6);
+        deadlineOfTheTask = percept.getParameters().toString().substring(8,11);
+        rewardOfTheTask = percept.getParameters().toString().substring(13,16);
+        requirementsOfTheTask[0] = percept.getParameters().toString().substring(23,30);
+        requirementsOfTheTask[1] = percept.getParameters().toString().substring(36,42);
+        requirementsOfTheTask[2] = percept.getParameters().toString().substring(48,54);
+        requirementsOfTheTask[3] = percept.getParameters().toString().substring(60,66);
+        //logger.info(nameOfTheTask + " " + deadlineOfTheTask + " " + rewardOfTheTask + " " + requirementsOfTheTask[0] + " " + requirementsOfTheTask[1] + " " + requirementsOfTheTask[2] + " " + requirementsOfTheTask[3]);
     }
 
 }
