@@ -1,6 +1,8 @@
 package massim.tedumas;
 
 import eis.iilang.Percept;
+import massim.tedumas.agents.Agent;
+
 import java.lang.Math;
 
 
@@ -18,12 +20,31 @@ public class TEDUPercept {
                 ", " + percept;
     }
 
+    public boolean rightAgent(Agent agent, String agentName){ return agent.getName().equalsIgnoreCase(agentName.substring(6,8)); }
+
     public String identifyThing() {
         //used for identifying things whether they are entities, obstacles or dispensers
         //a thing percept: "thing(3,1,obstacle,)"
         return percept.getParameters().get(2).toString();
     }
 
+    public String identifyDispenser() {
+        //used for identifying things whether they are entities, obstacles or dispensers
+        //a thing percept: "thing(3,1,dispenser,b1)"
+        return percept.getParameters().get(3).toString();
+    }
+
+    public boolean inTheRightPlace(){
+        return percept.getParameters().get(1).toString().equals("0");
+    }
+    public boolean inTheRightPlace2(){
+        return percept.getParameters().get(1).toString().equals("0")
+                &&Math.abs(Integer.parseInt(percept.getParameters().get(0).toString()))==2;
+    }
+    public boolean inTheRightPlace3(){
+        return percept.getParameters().get(1).toString().equals("0")
+                &&Math.abs(Integer.parseInt(percept.getParameters().get(0).toString()))==1;
+    }
     public boolean isSuitableForRequest(){
         if (percept.getName().equals("role") && percept.getParameters().size()==1)
             return percept.getParameters().get(0).toString().equals("worker") || percept.getParameters().get(0).toString().equals("constructor");
@@ -34,6 +55,16 @@ public class TEDUPercept {
         if (percept.getName().equals("role") && percept.getParameters().size()==1)
             return percept.getParameters().get(0).toString().equals("default");
         return false;
+    }
+
+    public boolean isRoleWorker(){
+        if (percept.getName().equals("role") && percept.getParameters().size()==1)
+            return percept.getParameters().get(0).toString().equals("worker");
+        return false;
+    }
+
+    public boolean isSomethingAttached(){
+        return percept.getName().equals("attached");
     }
 
     public boolean inRoleZone(){
