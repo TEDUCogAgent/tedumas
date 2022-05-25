@@ -9,53 +9,53 @@ import eis.iilang.Numeral;
 global massim.eismassim.EnvironmentInterface eis;
 global Logger logger;
 
-rule "start"
+rule "start A10"
 when
     $tPercept: TEDUPercept(percept.getName().equals("lastAction"), percept.getParameters().toString().equals("[]"))
 then
-    eis.performAction("A2", new Action("move", new Identifier("e")));
+    eis.performAction("A10", new Action("move", new Identifier("e")));
 end
 
-rule "previous"
+rule "previousA10"
 when
     $tPercept: TEDUPercept(percept.getName().equals("lastAction"), percept.getParameters().toString().equals("[move]"))
     $lastActionResult: TEDUPercept(stepID == $tPercept.stepID, percept.getName().equals("lastActionResult"), percept.getParameters().toString().equals("[success]"))
 then
-    eis.performAction("A2", new Action("move", new Identifier("e")));
+    eis.performAction("A10", new Action("move", new Identifier("e")));
 end
 
-rule "Clear Action: If there is an obstacle in the front after a move a2"
+rule "Clear Action: If there is an obstacle in the front after a move A10"
 when
     $tPercept: TEDUPercept(percept.getName().equals("lastAction"), percept.getParameters().toString().equals("[move]"))
     $lastActionResult: TEDUPercept(stepID == $tPercept.stepID, percept.getName().equals("lastActionResult"), percept.getParameters().toString().equals("[failed_path]"))
     $lastActionParams: TEDUPercept(stepID == $tPercept.stepID, percept.getName().equals("lastActionParams"),
     $direction : percept.getParameters().toString())
 then
-    eis.performAction("A2", new Action("clear",new Numeral(1), new Numeral(0) ));
+    eis.performAction("A10", new Action("clear",new Numeral(1), new Numeral(0) ));
 end
 
-rule "Clear Action: If the obstacle is successfully cleared a2"
+rule "Clear Action: If the obstacle is successfully cleared A10"
 when
     $tPercept: TEDUPercept(percept.getName().equals("lastAction"), percept.getParameters().toString().equals("[clear]"))
     $lastActionResult: TEDUPercept(stepID == $tPercept.stepID, percept.getName().equals("lastActionResult"), percept.getParameters().toString().equals("[success]"))
     $lastActionParams: TEDUPercept(stepID == $tPercept.stepID, percept.getName().equals("lastActionParams"),
     $direction: percept.getParameters().toString())
 then
-    eis.performAction("A2", new Action("move", new Identifier("e")));
+    eis.performAction("A10", new Action("move", new Identifier("e")));
 end
 
-rule "If massim produces failed_random randomly a2"
+rule "If massim produces failed_random randomly A10"
 when
     $lastActionResult: TEDUPercept(percept.getName().equals("lastActionResult"), percept.getParameters().toString().equals("[failed_random]"))
 then
-    eis.performAction("A2", new Action("move", new Identifier("e")));
+    eis.performAction("A10", new Action("move", new Identifier("e")));
 end
 
-rule "If massim produces failed_status after a move a2"
+rule "If massim produces failed_status after a move A10"
 when
     $tPercept: TEDUPercept(percept.getName().equals("lastAction"), percept.getParameters().toString().equals("[move]"))
     $lastActionResult: TEDUPercept(stepID == $tPercept.stepID, percept.getName().equals("lastActionResult"), percept.getParameters().toString().equals("[failed_status]"))
 then
-    eis.performAction("A2", new Action("move", new Identifier("e")));
+    eis.performAction("A10", new Action("move", new Identifier("e")));
 end
 */

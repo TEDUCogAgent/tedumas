@@ -33,7 +33,7 @@ public class BasicAgent extends Agent {
     Index root;
     IPersistentSet classExtent;
 
-    //For the one choosen task to be completed
+    //For the one chosen task to be completed
     String nameOfTheTask;
     String deadlineOfTheTask;
     String rewardOfTheTask;

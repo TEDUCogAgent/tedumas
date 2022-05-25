@@ -7,4 +7,49 @@
     <kbase name="KBaseA2">
         <ksession name="KSessionA2" type="stateful"/>
     </kbase>
+    <kbase name="KBaseA3">
+        <ksession name="KSessionA3" type="stateful"/>
+    </kbase>
+    <kbase name="KBaseA4">
+        <ksession name="KSessionA4" type="stateful"/>
+    </kbase>
+    <kbase name="KBaseA5">
+        <ksession name="KSessionA5" type="stateful"/>
+    </kbase>
+    <kbase name="KBaseA6">
+        <ksession name="KSessionA6" type="stateful"/>
+    </kbase>
+    <kbase name="KBaseA7">
+        <ksession name="KSessionA7" type="stateful"/>
+    </kbase>
+    <kbase name="KBase8">
+        <ksession name="KSessionA8" type="stateful"/>
+    </kbase>
+    <kbase name="KBaseA9">
+        <ksession name="KSessionA9" type="stateful"/>
+    </kbase>
+    <kbase name="KBaseA10">
+        <ksession name="KSessionA10" type="stateful"/>
+    </kbase>
+    <kbase name="KBaseA11">
+        <ksession name="KSessionA11" type="stateful"/>
+    </kbase>
+    <kbase name="KBaseA12">
+        <ksession name="KSessionA12" type="stateful"/>
+    </kbase>
+    <kbase name="KBaseA13">
+        <ksession name="KSessionA13" type="stateful"/>
+    </kbase>
+    <kbase name="KBaseA14">
+        <ksession name="KSessionA14" type="stateful"/>
+    </kbase>
+    <kbase name="KBaseA15">
+        <ksession name="KSessionA15" type="stateful"/>
+    </kbase>
+    <kbase name="KBaseA16">
+        <ksession name="KSessionA16" type="stateful"/>
+    </kbase>
+    <kbase name="KBaseA17">
+        <ksession name="KSessionA17" type="stateful"/>
+    </kbase>
 </kmodule>
